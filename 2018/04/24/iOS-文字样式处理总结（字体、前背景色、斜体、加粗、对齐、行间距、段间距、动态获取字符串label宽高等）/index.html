@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。  实例化方法和使用方法实例化方法：使用字符串初始化   (id)initWithString:(NSString )str;//">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。  实例化方法和使用方法实例化方法：使用字符串初始化   (id)initWithString:(NSString )str;//">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-24T10:25:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）">
+<meta name="twitter:description" content="在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。  实例化方法和使用方法实例化方法：使用字符串初始化   (id)initWithString:(NSString )str;//">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/" class="article-date">
+  <time datetime="2018-04-24T09:46:20.000Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。</p>
+<ol>
+<li>实例化方法和使用方法<br>实例化方法：<br>使用字符串初始化</li>
+</ol>
+<ul>
+<li>(id)initWithString:(NSString <em>)str;//例：NSMutableAttributedString </em>AttributedStr = [[NSMutableAttributedStringalloc]initWithString:@”文字样式处理”];</li>
+</ul>
+<p>字典中存放一些属性名和属性值：</p>
+<ul>
+<li>(id)initWithString:(NSString <em>)str attributes:(NSDictionary </em>)attrs;//如:NSDictionary <em>attributeDict = [NSDictionarydictionaryWithObjectsAndKeys: [UIFontsystemFontOfSize:15.0],NSFontAttributeName, [UIColorredColor],NSForegroundColorAttributeName, NSUnderlineStyleAttributeName,NSUnderlineStyleSingle,nil];NSMutableAttributedString </em>AttributedStr = [[NSMutableAttributedStringalloc]initWithString:@”文字样式处理” attributes:attributeDict];</li>
+</ul>
+<p>使用NSAttributedString初始化，跟NSMutableString，NSString类似:</p>
+<ul>
+<li>(id)initWithAttributedString:(NSAttributedString *)attester;</li>
+</ul>
+<p>使用方法：<br>为某一范围内文字设置多个属性</p>
+<ul>
+<li>(void)setAttributes:(NSDictionary *)attrs range:(NSRange)range;</li>
+</ul>
+<p>为某一范围内文字添加某个属性</p>
+<ul>
+<li>(void)addAttribute:(NSString *)name value:(id)value range:(NSRange)range;</li>
+</ul>
+<p>为某一范围内文字添加多个属性</p>
+<ul>
+<li>(void)addAttributes:(NSDictionary *)attrs range:(NSRange)range;</li>
+</ul>
+<p>移除某范围内的某个属性</p>
+<ul>
+<li>(void)removeAttribute:(NSString *)name range:(NSRange)range;</li>
+</ul>
+<ol start="2">
+<li>常见的属性及说明</li>
+</ol>
+<p><strong>NSFontAttributeName</strong> //字体<br><strong>NSParagraphStyleAttributeName</strong> //段落格式<br><strong>NSForegroundColorAttributeName</strong> //字体颜色<br><strong>NSBackgroundColorAttributeName</strong> //背景颜色<br><strong>NSStrikethroughStyleAttributeName</strong> //删除线格式<br><strong>NSUnderlineStyleAttributeName</strong> //下划线格式<br><strong>NSStrokeColorAttributeName</strong> //删除线颜色<br><strong>NSStrokeWidthAttributeName</strong>//删除线宽度<br><strong>NSShadowAttributeName</strong> //阴影<br><strong>NSParagraphStyleAttributeName</strong>//段落的风格（设置首行，行间距，对齐方式什么的）</p>
+<p>NSMutableParagraphStyle <em>paragraphStyle = [[NSMutableParagraphStyle alloc] init];<br>paragraphStyle.lineSpacing = 10;// 字体的行间距 paragraphStyle.firstLineHeadIndent = 20.0f;//首行缩进 paragraphStyle.alignment = NSTextAlignmentJustified;//（两端对齐的）文本对齐方式：（左，中，右，两端对齐，自然）<br>paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;//结尾部分的内容以……方式省略 ( “…wxyz” ,”abcd…” ,”ab…yz”)<br>paragraphStyle.headIndent = 20;//整体缩进(首行除外)<br>paragraphStyle.tailIndent = 20;//<br>paragraphStyle.minimumLineHeight = 10;//最低行高<br>paragraphStyle.maximumLineHeight = 20;//最大行高<br>paragraphStyle.paragraphSpacing = 15;//段与段之间的间距<br>paragraphStyle.paragraphSpacingBefore = 22.0f;//段首行空白空间/</em> Distance between the bottom of the previous paragraph (or the end of its paragraphSpacing, if any) and the top of this paragraph. <em>/<br>paragraphStyle.baseWritingDirection = NSWritingDirectionLeftToRight;//从左到右的书写方向（一共三种）<br>paragraphStyle.lineHeightMultiple = 15;//</em> Natural line height is multiplied by this factor (if positive) before being constrained by minimum and maximum line height. *//<br>paragraphStyle.hyphenationFactor = 1;//连字属性 在iOS，唯一支持的值分别为0和1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">两个样式枚举</span><br><span class="line">typedef NS_ENUM(NSInteger, NSLineBreakMode) &#123;/* What to do with long lines */ </span><br><span class="line">NSLineBreakByWordWrapping = 0, /* Wrap at word boundaries, default */</span><br><span class="line"> NSLineBreakByCharWrapping,/* Wrap at character boundaries */ </span><br><span class="line">NSLineBreakByClipping,/* Simply clip */剪掉后面显示不了的部分 </span><br><span class="line">NSLineBreakByTruncatingHead,/* Truncate at head of line: &quot;...wxyz&quot; */头部分的内容以……方式省略 </span><br><span class="line">NSLineBreakByTruncatingTail,/* Truncate at tail of line: &quot;abcd...&quot; */结尾部分的内容以……方式省略 </span><br><span class="line">NSLineBreakByTruncatingMiddle/* Truncate middle of line: &quot;ab...yz&quot; */中间部分的内容以……方式省略 </span><br><span class="line">&#125; NS_ENUM_AVAILABLE_IOS(6_0); </span><br><span class="line">typedef NS_ENUM(NSInteger, NSWritingDirection) &#123; </span><br><span class="line">NSWritingDirectionNatural = -1, // Determines direction using the Unicode Bidi Algorithm rules P2 and P3  </span><br><span class="line">NSWritingDirectionLeftToRight = 0, // Left to right writing direction 左到右的书写方向  </span><br><span class="line">NSWritingDirectionRightToLeft = 1 // Right to left writing direction 右到左的书写方向 </span><br><span class="line">&#125; NS_ENUM_AVAILABLE_IOS(6_0);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/* NSFontAttributeName 字体大小 </span><br><span class="line">NSParagraphStyleAttributeName 段落的风格（设置首行，行间距，对齐方式什么的） </span><br><span class="line">NSKernAttributeName 字间距 */</span><br><span class="line"> NSDictionary *attributes = @&#123; </span><br><span class="line">NSFontAttributeName:[UIFont systemFontOfSize:15], </span><br><span class="line">NSParagraphStyleAttributeName:paragraphStyle, </span><br><span class="line">NSKernAttributeName:@(10), </span><br><span class="line">&#125;; </span><br><span class="line">textView.attributedText = [[NSAttributedString alloc] initWithString:textView.text attributes:attributes];</span><br></pre></td></tr></table></figure>
+<p>再来个实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//随便定义一个字符串，做测试使用 </span><br><span class="line">NSString *massageStr = @&quot;\t北京乌托邦有限公司（以下简称“乌托邦”）在此特别提醒您（用户）在注册成为用户之前，请认真阅读本《用户协议》（以下简称“协议”），确保您充分理解本协议中各条款。请您审慎阅读并选择接受或不接受本协议。除非您接受本协议所有条款，否则您无权注册、登录或使用本协议所涉服务。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。\r\n \t本协议约定乌托邦与用户之间关于“乌托邦”软件服务（以下简称“服务”）的权利义务。“用户”是指注册、登录、使用本服务的个人。本协议可由乌托邦随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知，用户可在本网站查阅最新版协议条款。在乌托邦修改协议条款后，如果用户不接受修改后的条款，请立即停止使用乌托邦提供的服务，用户继续使用乌托邦提供的服务将被视为接受修改后的协议。&quot;; </span><br><span class="line">NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:massageStr]; </span><br><span class="line">NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];</span><br><span class="line">[paragraphStyle setLineSpacing:20];</span><br><span class="line">//调整行间距</span><br><span class="line">[attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.agreementText length])];</span><br><span class="line">[attributedString addAttribute:NSForegroundColorAttributeName value:</span><br><span class="line">[UIColor redColor] range:NSMakeRange(0, 12)]; // 0为起始位置 length是从起始位置开始 设置指定颜色的长度 </span><br><span class="line">[attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(18, 3)]; //设置尺寸 </span><br><span class="line">[attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:20] range:NSMakeRange(18, 3)]; // 0为起始位置 length是从起始位置开始 设置指定字体尺寸的长度</span><br></pre></td></tr></table></figure></p>
+<p>根据字符串获取宽高<br>根据宽度求高度 content 计算的内容 width 计算的宽度 font字体大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ (CGFloat)getHeightWithContent:(NSString *)content width:(CGFloat)width font:(CGFloat)font&#123; </span><br><span class="line">CGRect rect = [content boundingRectWithSize:CGSizeMake(width, 999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@&#123;</span><br><span class="line">NSFontAttributeName:[UIFont systemFontOfSize:font]&#125;  context:nil]; </span><br><span class="line">return rect.size.height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>根据高度度求宽度 content 计算的内容 Height 计算的高度 font字体大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ (CGFloat)getWidthWithContent:(NSString *)content height:(CGFloat)height font:(CGFloat)font&#123; </span><br><span class="line">CGRect rect = [content boundingRectWithSize:CGSizeMake(999, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@&#123;</span><br><span class="line">NSFontAttributeName:[UIFont systemFontOfSize:font]&#125; context:nil]; </span><br><span class="line">return rect.size.width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实际上，设置删除线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">NSStrikethroughColorAttributeName 的时候，值也是这个枚举。</span><br><span class="line"></span><br><span class="line">// NSUnderlineStyleNone 不设置下划线／删除线</span><br><span class="line"></span><br><span class="line">// NSUnderlineStyleSingle 设置下划线／删除线为细的单线</span><br><span class="line"></span><br><span class="line">// NSUnderlineStyleThick 设置下划线／删除线为粗的单线</span><br><span class="line"></span><br><span class="line">// NSUnderlineStyleDouble 设置下划线／删除线为细的双线</span><br><span class="line"></span><br><span class="line">// NSUnderlinePatternSolid 设置下划线／删除线样式为连续的实线</span><br><span class="line"></span><br><span class="line">// NSUnderlinePatternDot 设置下划线／删除线样式为点，也就是虚线，比如这样：－－－－－－</span><br><span class="line"></span><br><span class="line">// NSUnderlinePatterDash 设置下划线／删除线样式为破折号，比如这样：—— —— ——</span><br><span class="line"></span><br><span class="line">// NSUnderlinePatternDashDot 设置下划线／删除线样式为连续的破折号和点，比如这样：——－——－——－</span><br><span class="line"></span><br><span class="line">// NSUnderlinePatternDashDotDot 设置下划线／删除线样式为连续的破折号、点、点，比如：——－－——－－——－－</span><br><span class="line"></span><br><span class="line">// NSUnderlineByWord 在有空格的地方不设置下划线／删除线</span><br><span class="line">在设置以上属性时，可以以|分隔，同时设置多个属性</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/" data-id="cjgdiqq6y0009kezik6ws71jg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来--CALayer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS开发系列-让你的应用“动”起来--CALayer
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/24/C指针详解(经典,非常详细)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C指针详解(经典,非常详细)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/24/iOS-开发中手势方法的使用/">iOS-开发中手势方法的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">C指针--函数形参int-p与int--p的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/KVO键值依赖/">KVO键值依赖</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">iOS开发过程中遇到的新奇玩意儿</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">iOS开发证书要点详解，ios证书详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kasign<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -5,16 +5,19 @@
   
 
   
-  <title>test | Hexo</title>
+  <title>iOS-聊聊第一响应 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2018/04/24/test/index.html">
+  <meta name="description" content="当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstResponder = [keyWindow performSelector:@selector(_firstRes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-聊聊第一响应">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/iOS-聊聊第一响应/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstResponder = [keyWindow performSelector:@selector(_firstRes">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-24T08:50:11.000Z">
+<meta property="og:updated_time" content="2018-04-24T10:26:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
+<meta name="twitter:title" content="iOS-聊聊第一响应">
+<meta name="twitter:description" content="当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstResponder = [keyWindow performSelector:@selector(_firstRes">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -61,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-iOS-聊聊第一响应" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/24/test/" class="article-date">
-  <time datetime="2018-04-24T08:50:11.000Z" itemprop="datePublished">2018-04-24</time>
+    <a href="/2018/04/24/iOS-聊聊第一响应/" class="article-date">
+  <time datetime="2018-04-24T09:46:20.000Z" itemprop="datePublished">2018-04-24</time>
 </a>
     
   </div>
@@ -75,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      iOS-聊聊第一响应
     </h1>
   
 
@@ -83,11 +86,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];</span><br><span class="line">UIView * _firstResponder = [keyWindow performSelector:@selector(_firstResponder)];</span><br><span class="line">UIView * firstResponder = [keyWindow performSelector:@selector(firstResponder)];</span><br><span class="line">UIView *nextResponder = [keyWindow nextResponder];</span><br></pre></td></tr></table></figure></p>
+<p>以上获取的_firstResponder与firstResponder是同一对象。可以判断class类型得出第一响应具体是哪一个。<br>nextResponder是其下级响应者，一般都是其父类。</p>
+<p>如有新发现会持续更新！</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/24/test/" data-id="cjgdi9qpm000ijvzilcvxju10" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/24/iOS-聊聊第一响应/" data-id="cjgdiqq72000dkeziy4fjilsx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -96,19 +102,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/24/C指针详解(经典,非常详细)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/04/24/iOS-画虚线的几种方式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          iOS-画虚线的几种方式
         
       </div>
     </a>
   
   
-    <a href="/2018/04/24/iOS-App图标和启动画面尺寸/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/24/iOS开发之多线程GCD/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">iOS-App图标和启动画面尺寸</div>
+      <div class="article-nav-title">iOS开发之多线程GCD</div>
     </a>
   
 </nav>
@@ -145,23 +151,23 @@
       <ul>
         
           <li>
-            <a href="/2018/04/24/iOS开发之多线程锁/">(no title)</a>
+            <a href="/2018/04/24/iOS-开发中手势方法的使用/">iOS-开发中手势方法的使用</a>
           </li>
         
           <li>
-            <a href="/2018/04/24/KVO键值依赖/">(no title)</a>
+            <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">C指针--函数形参int-p与int--p的区别</a>
           </li>
         
           <li>
-            <a href="/2018/04/24/iOS-JavaScriptCore使用/">(no title)</a>
+            <a href="/2018/04/24/KVO键值依赖/">KVO键值依赖</a>
           </li>
         
           <li>
-            <a href="/2018/04/24/App-Store-审核指南/">(no title)</a>
+            <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">iOS开发过程中遇到的新奇玩意儿</a>
           </li>
         
           <li>
-            <a href="/2018/04/24/iOS-WKWebView与JS交互/">(no title)</a>
+            <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">iOS开发证书要点详解，ios证书详解</a>
           </li>
         
       </ul>

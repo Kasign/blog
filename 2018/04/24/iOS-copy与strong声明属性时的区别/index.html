@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>iOS-copy与strong声明属性时的区别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="xcode版本：8.3.3 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889////  ViewControl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-copy与strong声明属性时的区别">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/iOS-copy与strong声明属性时的区别/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="xcode版本：8.3.3 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889////  ViewControl">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-24T10:23:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS-copy与strong声明属性时的区别">
+<meta name="twitter:description" content="xcode版本：8.3.3 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889////  ViewControl">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS-copy与strong声明属性时的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/" class="article-date">
+  <time datetime="2018-04-24T08:50:11.000Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS-copy与strong声明属性时的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>xcode版本：8.3.3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  ViewController.m</span><br><span class="line">//  内存管理</span><br><span class="line">//</span><br><span class="line">//  Created by walg on 2017/8/9.</span><br><span class="line">//  Copyright © 2017年 walg. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;SecondViewController.h&quot;</span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong) NSMutableString *strM;</span><br><span class="line">@property (nonatomic, strong) NSString *str;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, copy) NSString *strC1;</span><br><span class="line">@property (nonatomic, copy) NSString *strC2;</span><br><span class="line">@property (nonatomic, copy) NSMutableString *strC3;</span><br><span class="line">@property (nonatomic, copy) NSMutableString *strC4;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong) NSString *strS1;</span><br><span class="line">@property (nonatomic, strong) NSString *strS2;</span><br><span class="line">@property (nonatomic, strong) NSMutableString *strS3;</span><br><span class="line">@property (nonatomic, strong) NSMutableString *strS4;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">//    self.strM = [NSString stringWithFormat:@&quot;abc&quot;];</span><br><span class="line">    </span><br><span class="line">    self.strM = [NSMutableString stringWithFormat:@&quot;abc&quot;];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    self.strC1 = self.strM;</span><br><span class="line">    self.strS1 = self.strM;</span><br><span class="line">    </span><br><span class="line">    self.strC3 = self.strM;</span><br><span class="line">    self.strS3 = self.strM;</span><br><span class="line">    </span><br><span class="line">    self.strC2 =  [NSString stringWithFormat:@&quot;%@&quot;,self.strM];</span><br><span class="line">    self.strS2 =  [NSString stringWithFormat:@&quot;%@&quot;,self.strM];</span><br><span class="line">    </span><br><span class="line">    self.strC4 =  (NSMutableString*)[NSString stringWithFormat:@&quot;%@&quot;,self.strM];</span><br><span class="line">    self.strS4 =  (NSMutableString*)[NSString stringWithFormat:@&quot;%@&quot;,self.strM];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;----------&gt;&gt;&gt;开始&lt;&lt;&lt;----------&quot;);</span><br><span class="line">    NSLog(@&quot;Ori_address-----&gt;&gt;&gt;&gt;&gt;&gt;：value:%@---%p==%p&quot;,_strM,_strM,&amp;_strM);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;C1：value:%@---%p==%p&quot;,_strC1,_strC1,&amp;_strC1);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;S1：value:%@---%p==%p&quot;,_strS1,_strS1,&amp;_strS1);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;C2：value:%@---%p==%p&quot;,_strC2,_strC2,&amp;_strC2);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;S2：value:%@---%p==%p&quot;,_strS2,_strS2,&amp;_strS2);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;C3：value:%@---%p==%p&quot;,_strC3,_strC3,&amp;_strC3);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;S3：value:%@---%p==%p&quot;,_strS3,_strS3,&amp;_strS3);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;C4：value:%@---%p==%p&quot;,_strC4,_strC4,&amp;_strC4);</span><br><span class="line">    NSLog(@&quot;address-----&gt;&gt;&gt;&gt;&gt;&gt;S4：value:%@---%p==%p&quot;,_strS4,_strS4,&amp;_strS4);</span><br><span class="line">    NSLog(@&quot;----------&gt;&gt;&gt;结束&lt;&lt;&lt;----------\n&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(void)touchesEnded:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event&#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">//    self.strM = [_strM stringByAppendingString:@&quot;de&quot;];</span><br><span class="line">    [_strM appendString:@&quot;de&quot;];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;----------&gt;&gt;&gt;点击开始输出&lt;&lt;&lt;----------&quot;);</span><br><span class="line">    NSLog(@&quot;Ori_address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;：value:%@---%p==%p&quot;,_strM,_strM,&amp;_strM);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C1：value:%@---%p==%p&quot;,_strC1,_strC1,&amp;_strC1);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S1：value:%@---%p==%p&quot;,_strS1,_strS1,&amp;_strS1);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C2：value:%@---%p==%p&quot;,_strC2,_strC2,&amp;_strC2);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S2：value:%@---%p==%p&quot;,_strS2,_strS2,&amp;_strS2);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C3：value:%@---%p==%p&quot;,_strC3,_strC3,&amp;_strC3);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S3：value:%@---%p==%p&quot;,_strS3,_strS3,&amp;_strS3);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C4：value:%@---%p==%p&quot;,_strC4,_strC4,&amp;_strC4);</span><br><span class="line">    NSLog(@&quot;address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S4：value:%@---%p==%p&quot;,_strS4,_strS4,&amp;_strS4);</span><br><span class="line">    NSLog(@&quot;----------&gt;&gt;&gt;点击结束输出&lt;&lt;&lt;----------\n&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void)didReceiveMemoryWarning &#123;</span><br><span class="line">    [super didReceiveMemoryWarning];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>《点了两次》<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">2017-08-09 18:17:29.112 内存管理[31855:14351521] ----------&gt;&gt;&gt;开始&lt;&lt;&lt;----------</span><br><span class="line">2017-08-09 18:17:29.112 内存管理[31855:14351521] Ori_address-----&gt;&gt;&gt;&gt;&gt;&gt;：value:abc---0x60800026ba40==0x7f86d0421748</span><br><span class="line">2017-08-09 18:17:29.112 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;C1：value:abc---0xa000000006362613==0x7f86d0421758</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;S1：value:abc---0x60800026ba40==0x7f86d0421778</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;C2：value:abc---0xa000000006362613==0x7f86d0421760</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;S2：value:abc---0xa000000006362613==0x7f86d0421780</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;C3：value:abc---0xa000000006362613==0x7f86d0421768</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;S3：value:abc---0x60800026ba40==0x7f86d0421788</span><br><span class="line">2017-08-09 18:17:29.113 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;C4：value:abc---0xa000000006362613==0x7f86d0421770</span><br><span class="line">2017-08-09 18:17:29.114 内存管理[31855:14351521] address-----&gt;&gt;&gt;&gt;&gt;&gt;S4：value:abc---0xa000000006362613==0x7f86d0421790</span><br><span class="line">2017-08-09 18:17:29.114 内存管理[31855:14351521] ----------&gt;&gt;&gt;结束&lt;&lt;&lt;----------</span><br><span class="line">2017-08-09 18:19:13.818 内存管理[31855:14351521] ----------&gt;&gt;&gt;点击开始输出&lt;&lt;&lt;----------</span><br><span class="line">2017-08-09 18:19:13.819 内存管理[31855:14351521] Ori_address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;：value:abcde---0x60800026ba40==0x7f86d0421748</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C1：value:abc---0xa000000006362613==0x7f86d0421758</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S1：value:abcde---0x60800026ba40==0x7f86d0421778</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C2：value:abc---0xa000000006362613==0x7f86d0421760</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S2：value:abc---0xa000000006362613==0x7f86d0421780</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C3：value:abc---0xa000000006362613==0x7f86d0421768</span><br><span class="line">2017-08-09 18:19:13.820 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S3：value:abcde---0x60800026ba40==0x7f86d0421788</span><br><span class="line">2017-08-09 18:19:13.821 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C4：value:abc---0xa000000006362613==0x7f86d0421770</span><br><span class="line">2017-08-09 18:19:13.845 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S4：value:abc---0xa000000006362613==0x7f86d0421790</span><br><span class="line">2017-08-09 18:19:13.845 内存管理[31855:14351521] ----------&gt;&gt;&gt;点击结束输出&lt;&lt;&lt;----------</span><br><span class="line">2017-08-09 18:19:19.625 内存管理[31855:14351521] ----------&gt;&gt;&gt;点击开始输出&lt;&lt;&lt;----------</span><br><span class="line">2017-08-09 18:19:19.626 内存管理[31855:14351521] Ori_address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;：value:abcdede---0x60800026ba40==0x7f86d0421748</span><br><span class="line">2017-08-09 18:19:19.626 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C1：value:abc---0xa000000006362613==0x7f86d0421758</span><br><span class="line">2017-08-09 18:19:19.626 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S1：value:abcdede---0x60800026ba40==0x7f86d0421778</span><br><span class="line">2017-08-09 18:19:19.626 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C2：value:abc---0xa000000006362613==0x7f86d0421760</span><br><span class="line">2017-08-09 18:19:19.626 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S2：value:abc---0xa000000006362613==0x7f86d0421780</span><br><span class="line">2017-08-09 18:19:19.627 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C3：value:abc---0xa000000006362613==0x7f86d0421768</span><br><span class="line">2017-08-09 18:19:19.627 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S3：value:abcdede---0x60800026ba40==0x7f86d0421788</span><br><span class="line">2017-08-09 18:19:19.627 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;C4：value:abc---0xa000000006362613==0x7f86d0421770</span><br><span class="line">2017-08-09 18:19:19.628 内存管理[31855:14351521] address&lt;&lt;&lt;&lt;&lt;&lt;-----&gt;&gt;&gt;&gt;&gt;&gt;S4：value:abc---0xa000000006362613==0x7f86d0421790</span><br><span class="line">2017-08-09 18:19:19.628 内存管理[31855:14351521] ----------&gt;&gt;&gt;点击结束输出&lt;&lt;&lt;----------</span><br></pre></td></tr></table></figure></p>
+<p><strong>可以看到：</strong><br><strong>一、在接收NSMutableString的值时：</strong><br>（1）@property (nonatomic, strong) NSString <em>strS2; 用“=”赋值时，_strS2 与_strC3的值指向同一内存地址。当_strC3改变时，_strS2也跟着改变。<br>（2）@property (nonatomic, copy) NSString </em>strC2; 用“=”赋值时，_strC2 与_strC3的值指向新的内存地址。当_strC3改变时，_strC2不跟着改变。<br>（3）[NSString stringWithFormat:@”%@”,self.strC3]当用这种方式赋值时，无论是copy还是strong都会开辟新的地址，与原来的都没有关联。<br>（4）以上跟NSMutableString还是NSString无关。<br>二、在接收NSString的值时，都是开辟新的地址。互不影响，与copy和strong无关！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/24/iOS-copy与strong声明属性时的区别/" data-id="cjgdiqq6y0008keziy8lzaneq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来--Core-Animation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS开发系列-让你的应用“动”起来--Core-Animation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/24/iOS-App图标和启动画面尺寸/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS-App图标和启动画面尺寸</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/24/iOS-开发中手势方法的使用/">iOS-开发中手势方法的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">C指针--函数形参int-p与int--p的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/KVO键值依赖/">KVO键值依赖</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">iOS开发过程中遇到的新奇玩意儿</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">iOS开发证书要点详解，ios证书详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kasign<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

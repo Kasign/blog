@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>iOS-JavaScriptCore使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。 ##JavaScriptCore中主要的类  1、JSContext — 在OC中创建JavaScript运行的上下文环境12345678910111213141516171819202122232425- (instancetype)init; // 创建JSContext对象，获得JavaScrip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-JavaScriptCore使用">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/iOS-JavaScriptCore使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。 ##JavaScriptCore中主要的类  1、JSContext — 在OC中创建JavaScript运行的上下文环境12345678910111213141516171819202122232425- (instancetype)init; // 创建JSContext对象，获得JavaScrip">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-24T10:23:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS-JavaScriptCore使用">
+<meta name="twitter:description" content="JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。 ##JavaScriptCore中主要的类  1、JSContext — 在OC中创建JavaScript运行的上下文环境12345678910111213141516171819202122232425- (instancetype)init; // 创建JSContext对象，获得JavaScrip">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS-JavaScriptCore使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/24/iOS-JavaScriptCore使用/" class="article-date">
+  <time datetime="2018-04-24T09:46:20.000Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS-JavaScriptCore使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。</p>
+<p>##JavaScriptCore中主要的类</p>
+<p> 1、JSContext — 在OC中创建JavaScript运行的上下文环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init; // 创建JSContext对象，获得JavaScript运行的上下文环境</span><br><span class="line"></span><br><span class="line">// 在特定的对象空间上创建JSContext对象，获得JavaScript运行的上下文环境</span><br><span class="line">- (instancetype)initWithVirtualMachine:(JSVirtualMachine *)virtualMachine;</span><br><span class="line"></span><br><span class="line">// 运行一段js代码，输出结果为JSValue类型</span><br><span class="line">- (JSValue *)evaluateScript:(NSString *)script;</span><br><span class="line"></span><br><span class="line">// iOS 8.0以后可以调用此方法</span><br><span class="line">- (JSValue *)evaluateScript:(NSString *)script withSourceURL:(NSURL *)sourceURL NS_AVAILABLE(10_10, 8_0);</span><br><span class="line"></span><br><span class="line">// 获取当前正在运行的JavaScript上下文环境</span><br><span class="line">+ (JSContext *)currentContext;</span><br><span class="line"></span><br><span class="line">// 返回结果当前执行的js函数 function () &#123; [native code] &#125; ，iOS 8.0以后可以调用此方法</span><br><span class="line"> + (JSValue *)currentCallee NS_AVAILABLE(10_10, 8_0);</span><br><span class="line"></span><br><span class="line"> // 返回结果当前方法的调用者[object Window]</span><br><span class="line"> + (JSValue *)currentThis;</span><br><span class="line"></span><br><span class="line"> // 返回结果为当前被调用方法的参数</span><br><span class="line"> + (NSArray *)currentArguments;</span><br><span class="line"></span><br><span class="line"> // js的全局变量 [object Window]</span><br><span class="line"> @property (readonly, strong) JSValue *globalObject;</span><br></pre></td></tr></table></figure></p>
+<p> 2、JSValue — JavaScript中的变量和方法，可以转成OC数据类型,每个JSValue都和JSContext相关联并且强引用context<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">   oc与js类型对照：</span><br><span class="line">      @textblock</span><br><span class="line">     Objective-C type  |   JavaScript type</span><br><span class="line">   --------------------+---------------------</span><br><span class="line">           nil         |     undefined</span><br><span class="line">          NSNull       |        null</span><br><span class="line">         NSString      |       string</span><br><span class="line">         NSNumber      |   number, boolean</span><br><span class="line">       NSDictionary    |   Object object</span><br><span class="line">         NSArray       |    Array object</span><br><span class="line">          NSDate       |     Date object</span><br><span class="line">         NSBlock (1)   |   Function object (1)</span><br><span class="line">            id (2)     |   Wrapper object (2)</span><br><span class="line">          Class (3)    | Constructor object (3)</span><br><span class="line">      @/textblock</span><br><span class="line"></span><br><span class="line">  //此方法会转换self为JS对象，但是self中必须实现指定的方法和协议</span><br><span class="line">  + (JSValue *)valueWithObject:(id)value inContext:(JSContext *)context;</span><br><span class="line"></span><br><span class="line">  // 在context创建BOOL的JS变量</span><br><span class="line">  + (JSValue *)valueWithBool:(BOOL)value inContext:(JSContext *)context;</span><br><span class="line"></span><br><span class="line">  // 将JS变量转换成OC中的BOOL类型</span><br><span class="line">  - (BOOL)toBool;</span><br><span class="line"></span><br><span class="line">  // 修改JS对象的属性的值</span><br><span class="line">  - (void)setValue:(id)value forProperty:(NSString *)property;</span><br><span class="line"></span><br><span class="line">  // JS中是否有这个对象</span><br><span class="line">  @property (readonly) BOOL isUndefined;</span><br><span class="line"></span><br><span class="line">  // 比较两个JS对象是否相等</span><br><span class="line">  - (BOOL)isEqualToObject:(id)value;</span><br><span class="line"></span><br><span class="line">  // 调用者JSValue为JS中的方法，arguments为参数，执行调用者JSValue，并传递参数arguments,@[@&quot;a&quot;,@&quot;b&quot;@&quot;c&quot;]</span><br><span class="line">  - (JSValue *)callWithArguments:(NSArray *)arguments;</span><br><span class="line"></span><br><span class="line"> // 调用者JSValue为JS中的全局对象名称，method为全局对象的方法名称，arguments为参数</span><br><span class="line">  - (JSValue *)invokeMethod:(NSString *)method withArguments:(NSArray *)arguments;</span><br><span class="line"></span><br><span class="line"> // JS中的结构体类型转换为OC</span><br><span class="line">  + (JSValue *)valueWithPoint:(CGPoint)point inContext:(JSContext *)context;</span><br><span class="line">JSExport --- JS调用OC中的方法和属性写在继承自JSExport的协议当中，OC对象实现自定义的协议</span><br><span class="line"> // textFunction -- JS方法</span><br><span class="line"> // - (void) ocTestFunction:(NSNumber *)value sec:(NSNumber *)number -- OC方法</span><br><span class="line"> JSExportAs (textFunction,- (void) ocTestFunction:(NSNumber *)value sec:(NSNumber *)number);</span><br><span class="line">JSManagedValue --- JS和OC对象的内存管理辅助对象,主要用来保存JSValue对象,解决OC对象中存储js的值，导致的循环引用问题</span><br><span class="line"></span><br><span class="line"> JSManagedValue *_jsManagedValue = [JSManagedValue managedValueWithValue:jsValue];</span><br><span class="line">[_context.virtualMachine addManagedReference:_jsManagedValue];</span><br><span class="line">JSManagedValue本身只弱引用js值，需要调用JSVirtualMachine的addManagedReference:withOwner:把它添加到JSVirtualMachine中，这样如果JavaScript能够找到该JSValue的Objective-C owner，该JSValue的引用就不会被释放。</span><br><span class="line">JSVirtualMachine --- JS运行的虚拟机，有独立的堆空间和垃圾回收机制，运行在不同虚拟机环境的JSContext可以通过此类通信。</span><br></pre></td></tr></table></figure></p>
+<p>下面记录一下使用方法：</p>
+<p>##一、简单的情况，JS中，点击事件直接调用方法方式<br>   1.1 JS代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta content=&quot;width=device-width,initial-scale=1,user-scalable=no&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;body style=&quot;background-color: white;&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var nativeCallJS = function(parameter) &#123;</span><br><span class="line">            alert (parameter);</span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;jsCallNative(&apos;jsParameter&apos;)&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>1.2 oc代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">- (void)doSomeJsThings&#123;</span><br><span class="line">    </span><br><span class="line">    self.jsContext = [_webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</span><br><span class="line">    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exception) &#123;</span><br><span class="line">        NSLog(@&quot;出现异常，异常信息：%@&quot;,exception);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    //oc调用js</span><br><span class="line">    JSValue * nativeCallJS = self.jsContext[@&quot;nativeCallJS&quot;];</span><br><span class="line">    [nativeCallJS callWithArguments:@[@&quot;hello word&quot;]];//调用了js中方法&quot;nativeCallJS&quot;,并且传参数@&quot;hello word&quot;</span><br><span class="line">    </span><br><span class="line">    //在本地生成js方法，供js调用</span><br><span class="line">    self.jsContext[@&quot;jsCallNative&quot;] = ^(NSString *paramer)&#123;</span><br><span class="line">        JSValue *currentThis = [JSContext currentThis];</span><br><span class="line">        JSValue *currentCallee = [JSContext currentCallee];</span><br><span class="line">        NSArray *currentParamers = [JSContext currentArguments];</span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            /**</span><br><span class="line">             *  js调起OC代码，代码在子线程，更新OC中的UI，需要回到主线程</span><br><span class="line">             */</span><br><span class="line">            NSLog(@&quot;js传过来：%@&quot;,paramer);</span><br><span class="line">        &#125;);</span><br><span class="line">        NSLog(@&quot;JS paramer is %@&quot;,paramer);</span><br><span class="line">        NSLog(@&quot;currentThis is %@&quot;,[currentThis toString]);</span><br><span class="line">        NSLog(@&quot;currentCallee is %@&quot;,[currentCallee toString]);</span><br><span class="line">        NSLog(@&quot;currentParamers is %@&quot;,currentParamers);</span><br><span class="line">    &#125;;//生成native的js方法，方法名：@&quot;jsCallNative&quot;,js可直接调用此方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017-11-15 13:30:37.715810+0800 WebView+image[2940:337555] js传过来：jsParameter</span><br><span class="line">2017-11-15 13:30:37.715759+0800 WebView+image[2940:337892] JS paramer is jsParameter</span><br><span class="line">2017-11-15 13:30:37.716007+0800 WebView+image[2940:337892] currentThis is [object Window]</span><br><span class="line">2017-11-15 13:30:37.716337+0800 WebView+image[2940:337892] currentCallee is function () &#123;</span><br><span class="line">    [native code]</span><br><span class="line">&#125;</span><br><span class="line">2017-11-15 13:30:37.716743+0800 WebView+image[2940:337892] currentParamers is (</span><br><span class="line">    jsParameter</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>以上就是简单的调用。</p>
+<p>##二、复杂调用，JS中，点击事件等事件通过调用全局对象的方法调用方法，JS和Native代码的互调如下：<br>2.1 JS代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta content=&quot;width=device-width,initial-scale=1,user-scalable=no&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">&lt;body style=&quot;background-color: white;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        globalObject = new Object();</span><br><span class="line">        globalObject.name = 100;</span><br><span class="line">        globalObject.nativeCallJS = function (parameter) &#123;</span><br><span class="line">            alert (parameter);</span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;NativeObject.jsCallNative()&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码&lt;/button&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;NativeObject.shareString(&apos;jsParameter&apos;)&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码并传参数&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.2 oc代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//声明的协议，当前viewController必须遵守</span><br><span class="line">@protocol JSObjcDelegate &lt;JSExport&gt;</span><br><span class="line"></span><br><span class="line">- (void)jsCallNative;</span><br><span class="line">- (void)shareString:(NSString *)shareString;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">//方法实现，在webViewDidFinishLoad中调用</span><br><span class="line">- (void)doSomeJsThings&#123;</span><br><span class="line">    </span><br><span class="line">    self.jsContext = [_webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</span><br><span class="line">    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exception) &#123;</span><br><span class="line">        NSLog(@&quot;出现异常，异常信息：%@&quot;,exception);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    //oc调用js</span><br><span class="line">    JSValue * jsObj = self.jsContext[@&quot;globalObject&quot;];//拿到js中要调用方法的全局对象</span><br><span class="line">    //jsObj执行其方法nativeCallJS</span><br><span class="line">    JSValue * returnValue = [jsObj invokeMethod:@&quot;nativeCallJS&quot; withArguments:@[@&quot;hello word&quot;]];</span><br><span class="line">   //调用了js中方法&quot;nativeCallJS&quot;,并且传参数@&quot;hello word&quot;,这里returnValue是调用之后的返回值，可能为nil</span><br><span class="line">    NSLog(@&quot;returnValue:%@&quot;,returnValue);</span><br><span class="line">    </span><br><span class="line">    //写法1</span><br><span class="line">    JSValue * jsCallNative = [JSValue valueWithObject:self inContext:self.jsContext];//此方法会转换self为JS对象，但是self中必须实现指定的方法和协议</span><br><span class="line">    self.jsContext[@&quot;NativeObject&quot;] = jsCallNative;</span><br><span class="line">    //写法2</span><br><span class="line">    //self.jsContext[@&quot;NativeObject&quot;] = self;</span><br><span class="line">    //注：写法1和写法2效果相同，推荐写法1，毕竟系统方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)jsCallNative&#123;//在本地生成js方法，供js调用</span><br><span class="line">    </span><br><span class="line">    JSValue *currentThis = [JSContext currentThis];</span><br><span class="line">    JSValue *currentCallee = [JSContext currentCallee];</span><br><span class="line">    NSArray *currentParamers = [JSContext currentArguments];</span><br><span class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        /**</span><br><span class="line">         *  js调起OC代码，代码在子线程，更新OC中的UI，需要回到主线程</span><br><span class="line">         */</span><br><span class="line">    &#125;);</span><br><span class="line">    NSLog(@&quot;currentThis is %@&quot;,[currentThis toString]);</span><br><span class="line">    NSLog(@&quot;currentCallee is %@&quot;,[currentCallee toString]);</span><br><span class="line">    NSLog(@&quot;currentParamers is %@&quot;,currentParamers);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void)shareString:(NSString *)shareString&#123;//在本地生成js方法，供js调用</span><br><span class="line">    </span><br><span class="line">    JSValue *currentThis = [JSContext currentThis];</span><br><span class="line">    JSValue *currentCallee = [JSContext currentCallee];</span><br><span class="line">    NSArray *currentParamers = [JSContext currentArguments];</span><br><span class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        /**</span><br><span class="line">         *  js调起OC代码，代码在子线程，更新OC中的UI，需要回到主线程</span><br><span class="line">         */</span><br><span class="line">        NSLog(@&quot;js传过来：%@&quot;,shareString);</span><br><span class="line">    &#125;);</span><br><span class="line">    NSLog(@&quot;JS paramer is %@&quot;,shareString);</span><br><span class="line">    NSLog(@&quot;currentThis is %@&quot;,[currentThis toString]);</span><br><span class="line">    NSLog(@&quot;currentCallee is %@&quot;,[currentCallee toString]);</span><br><span class="line">    NSLog(@&quot;currentParamers is %@&quot;,currentParamers);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印的log：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2017-11-15 14:02:18.695352+0800 WebView+image[3257:377010] currentThis is [object SecondViewController]</span><br><span class="line">2017-11-15 14:02:18.695745+0800 WebView+image[3257:377010] currentCallee is function () &#123;</span><br><span class="line">    [native code]</span><br><span class="line">&#125;</span><br><span class="line">2017-11-15 14:02:18.695936+0800 WebView+image[3257:377010] currentParamers is (</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">2017-11-15 14:02:50.904847+0800 WebView+image[3257:376893] js传过来：jsParameter</span><br><span class="line">2017-11-15 14:02:50.904842+0800 WebView+image[3257:377010] JS paramer is jsParameter</span><br><span class="line">2017-11-15 14:02:50.905124+0800 WebView+image[3257:377010] currentThis is [object SecondViewController]</span><br><span class="line">2017-11-15 14:02:50.905607+0800 WebView+image[3257:377010] currentCallee is function () &#123;</span><br><span class="line">    [native code]</span><br><span class="line">&#125;</span><br><span class="line">2017-11-15 14:02:50.906052+0800 WebView+image[3257:377010] currentParamers is (</span><br><span class="line">    jsParameter</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>##三，特殊要求<br>  3.1 、JS中对象已经生成，需要OC生成对应的方法实现，JS去调用<br>JS代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta content=&quot;width=device-width,initial-scale=1,user-scalable=no&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">&lt;body style=&quot;background-color: white;&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        globalObject = new Object();</span><br><span class="line">        globalObject.name = 100;</span><br><span class="line">        globalObject.nativeCallJS = function (parameter) &#123;</span><br><span class="line">            alert (parameter);</span><br><span class="line">        &#125;;</span><br><span class="line">    </span><br><span class="line">        var callBack = function(parameter)&#123;</span><br><span class="line">            alert(parameter);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;NativeObject.jsCallNative()&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码&lt;/button&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;NativeObject.shareString(&apos;jsParameter&apos;)&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码并传参数&lt;/button&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;globalObject.creatJSMethod(&apos;jsParameter&apos;)&quot; style=&quot;width:100%;height:30px;&quot;/&gt;oc生成JS方法&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>以上JS中globalObject对象已经存在，但是在没有实现creatJSMethod方法，在按钮”oc生成JS方法”却调用了此方法。<br>OC代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)doSomeJsThings&#123;</span><br><span class="line">    </span><br><span class="line">    self.jsContext = [_webView valueForKeyPath:@&quot;documentView.webView.mainFrame.javaScriptContext&quot;];</span><br><span class="line">    self.jsContext.exceptionHandler = ^(JSContext *context, JSValue *exception) &#123;</span><br><span class="line">        NSLog(@&quot;出现异常，异常信息：%@&quot;,exception);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    //oc调用js</span><br><span class="line">    JSValue * jsObj = self.jsContext[@&quot;globalObject&quot;];//拿到JS中已经存在的对象</span><br><span class="line">    //为jsObj对应的方法提供方法实现</span><br><span class="line">    jsObj[@&quot;creatJSMethod&quot;] = ^(NSString * parameter)&#123;</span><br><span class="line">        NSLog(@&quot;方法生成成功：%@&quot;,parameter);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>log：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2017-11-15 14:47:08.126160+0800 WebView+image[3661:435044] 方法生成成功：jsParameter</span><br><span class="line">``` </span><br><span class="line">3.2、oc重写js本地的方法，与生成一样，上面的代码：</span><br></pre></td></tr></table></figure></p>
+<p> jsObj[@”creatJSMethod”] = ^(NSString * parameter){<br>    NSLog(@”方法生成成功：%@”,parameter);<br> };<br><code>`</code><br>既能生成，也能重写。</p>
+<p>这些基本就是全部的情况了，当然还有一些线程问题等，等有需要再总结。</p>
+<p>#####总结：<br>oc与js交互，先看js是调oc还是oc调用js，再看js中方法是全局方法还是全局属性方法（可能说的不是很准确）。清楚了这些就好实现了！！！</p>
+<p><a href="http://www.jianshu.com/p/c988d9fe55f5" target="_blank" rel="noopener">iOS WKWebView与JS交互</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/24/iOS-JavaScriptCore使用/" data-id="cjgdiqq6x0007kezibsjs377b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/24/App-Store-审核指南/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          App-Store-审核指南
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来--CALayer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS开发系列-让你的应用“动”起来--CALayer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/24/iOS-开发中手势方法的使用/">iOS-开发中手势方法的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">C指针--函数形参int-p与int--p的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/KVO键值依赖/">KVO键值依赖</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">iOS开发过程中遇到的新奇玩意儿</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">iOS开发证书要点详解，ios证书详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Kasign<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
