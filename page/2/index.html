@@ -77,6 +77,14 @@
                     </li>
 					
                     
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
 					
 					
                 </ul>
@@ -265,9 +273,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-总结遇到的各种坑儿/">
+    <a href="/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/">
         <h2 class="post-title">
-            iOS-总结遇到的各种坑儿
+            iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -275,8 +283,34 @@
         
         <div class="post-content-preview">
             <p>
-                持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
-##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj ..
+                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
+
+实例化方法和使用方法实..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS-画虚线的几种方式/">
+        <h2 class="post-title">
+            iOS-画虚线的几种方式
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                重写drawRect方法
+
+(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSet..
             </p>
         </div>
     </a>
@@ -300,31 +334,6 @@
         <div class="post-content-preview">
             <p>
                 当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstRespon..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发常用数学函数/">
-        <h2 class="post-title">
-            iOS开发常用数学函数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
-反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double);..
             </p>
         </div>
     </a>
@@ -363,9 +372,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/">
+    <a href="/2018/04/24/iOS开发常用数学函数/">
         <h2 class="post-title">
-            iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）
+            iOS开发常用数学函数
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -373,9 +382,9 @@
         
         <div class="post-content-preview">
             <p>
-                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
-
-实例化方法和使用方法实..
+                
+三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
+反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double);..
             </p>
         </div>
     </a>
@@ -388,9 +397,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">
+    <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来--CALayer/">
         <h2 class="post-title">
-            iOS开发证书要点详解，ios证书详解
+            iOS开发系列-让你的应用“动”起来--CALayer
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -398,9 +407,8 @@
         
         <div class="post-content-preview">
             <p>
-                关于开发证书配置（Certificates&amp;Identifiers&amp;Provisioning Profiles），相信做iOS开发的同学没少被折腾。对于一个iOS开发小白、半吊子抑或老兵，或多或少会有以下不详、疑问、疑惑甚至困惑：
-本文将对相关概念做个系统的梳理串烧。
-首先，假设..
+                #概览
+在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天将带大家一窥iOS动画全貌。在这里你可以看到iOS中如何使用图层精简非交互式绘图，如何通过核心动画创建基础动画、关键帧动画、动画组、转场动画，如何通过UIView的装饰方法对这些动画操作进行简化等。在今天的文章里您可..
             </p>
         </div>
     </a>
@@ -541,6 +549,12 @@
             <section>
                 <div class="tags">
                     
+                    
+                    
+                    
+                    
+                    
+                    
                 </div>
             </section>
             
@@ -577,7 +591,7 @@
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                     <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                    Github by <a href="https://github.com/Kasign">Kasign</a>
                 </p>
 
             </div>
