@@ -127,8 +127,8 @@
 
 <style>
 
-    .custom-haojen-container .post-preview:nth-of-type(1),
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+    .custom-container .post-preview:nth-of-type(1),
+    .custom-container .post-preview-poetry:nth-of-type(1) {
         text-align: center;
         background-repeat: no-repeat;
         border-radius: 3px;
@@ -141,14 +141,14 @@
     }
 
     /*去掉诗歌的背景图片*/
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+    .custom-container .post-preview-poetry:nth-of-type(1) {
         background-image: none !important;
         background-color: rgba(255, 248, 220, 0.5);
     }
 
-    .custom-haojen-container .post-preview:nth-child(1) h2,
-    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
-    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+    .custom-container .post-preview:nth-child(1) h2,
+    .custom-container .post-preview:nth-child(1) .post-meta,
+    .custom-container .post-preview:nth-child(1) .post-subtitle {
         text-shadow: 0 0 40px rgba(0, 0, 0, 1);
         letter-spacing: 1px;
         color: #fff;
@@ -157,13 +157,13 @@
         padding-right: 60px;
     }
 
-    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+    .custom-container .post-preview:nth-child(1) .post-meta {
         font-size: .9em;
         font-weight: 300;
         margin-top: 0;
     }
 
-    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+    .custom-container .post-preview-poetry:nth-child(1) .post-subtitle {
         letter-spacing: 6px;
         font-size: 18px;
         font-family: unset;
@@ -172,74 +172,74 @@
     }
 
     /*不显示摘要*/
-    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+    .custom-container .post-preview:nth-child(1) .post-content-preview {
         display: none
     }
 
     /*只第一个显示背景图片*/
-    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+    .custom-container .post-preview:not(:nth-child(1)) {
         background-image: none !important;
     }
 
     /*第一个分界线去掉*/
-    .custom-haojen-container hr:nth-of-type(1) {
+    .custom-container hr:nth-of-type(1) {
         display: none;
     }
 
     /*主题*/
-    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+    .custom-container .post-preview:nth-of-type(1) > a {
         display: table-cell;
         vertical-align: middle;
     }
 
     /*诗词标题*/
-    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+    .custom-container .post-preview-poetry:nth-child(1) h2 {
         font-size: 35px;
         font-family: STKaiti;
         color: rgba(0, 0, 0, .8);
     }
 
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+    .custom-container .post-preview-poetry:nth-of-type(1) .post-meta {
         color: #0e2231;
     }
 
     @media (max-width: 768px) {
-        .custom-haojen-container .post-preview:nth-child(1) {
+        .custom-container .post-preview:nth-child(1) {
             height: 240px;
         }
 
-        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        .custom-container .post-preview-poetry:nth-child(1) h2 {
             font-size: 28px !important;
             margin-top: 0;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        .custom-container .post-preview:nth-child(1) .post-subtitle {
             font-size: 18px;
             font-weight: 400;
             padding-left: 0;
             padding-right: 0;
         }
 
-        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        .custom-container .post-preview:nth-of-type(1) > a {
             padding: 20px
         }
     }
 
     /*手机屏幕*/
     @media (max-width: 400px) {
-        .custom-haojen-container .post-preview:nth-child(1) {
+        .custom-container .post-preview:nth-child(1) {
             height: 195px;
         }
 
-        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        .custom-container .post-preview-poetry:nth-child(1) h2 {
             font-size: 20px !important;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        .custom-container .post-preview:nth-child(1) .post-subtitle {
             font-size: 16px;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) a {
+        .custom-container .post-preview:nth-child(1) a {
             padding: 30px 20px;
         }
     }
@@ -263,7 +263,7 @@
     </div>
 </div>
 <!-- Main Content -->
-<div class="container custom-haojen-container">
+<div class="container custom-container">
     <!-- Post Container -->
     <div class="row">
         <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
@@ -283,9 +283,7 @@
         
         <div class="post-content-preview">
             <p>
-                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
-
-实例化方法和使用方法实..
+                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进..
             </p>
         </div>
     </a>
@@ -294,6 +292,27 @@
 
 <hr>
 
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS-聊聊第一响应/">
+        <h2 class="post-title">
+            iOS-聊聊第一响应
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];U..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
 
 
 <div class="post-preview "
@@ -310,7 +329,7 @@
             <p>
                 重写drawRect方法
 
-(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSet..
+(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); /..
             </p>
         </div>
     </a>
@@ -320,12 +339,11 @@
 <hr>
 
 
-
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-聊聊第一响应/">
+    <a href="/2018/04/24/iOS开发常用数学函数/">
         <h2 class="post-title">
-            iOS-聊聊第一响应
+            iOS开发常用数学函数
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -333,7 +351,9 @@
         
         <div class="post-content-preview">
             <p>
-                当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstRespon..
+                
+三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
+反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　d..
             </p>
         </div>
     </a>
@@ -341,7 +361,6 @@
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -359,7 +378,7 @@
                 目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。
 多线程相关概念进程与线程的关系？
 
-进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程..
+进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个..
             </p>
         </div>
     </a>
@@ -367,32 +386,6 @@
 </div>
 
 <hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发常用数学函数/">
-        <h2 class="post-title">
-            iOS开发常用数学函数
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
-反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double);..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
 
 
 <div class="post-preview "
@@ -408,7 +401,7 @@
         <div class="post-content-preview">
             <p>
                 #概览
-在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天将带大家一窥iOS动画全貌。在这里你可以看到iOS中如何使用图层精简非交互式绘图，如何通过核心动画创建基础动画、关键帧动画、动画组、转场动画，如何通过UIView的装饰方法对这些动画操作进行简化等。在今天的文章里您可..
+在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天将带大家一窥iOS动画全貌。在这里你可以看到iOS中如何使用图层精简非交互式绘图，如何通过核心动画创建基础动画、关键帧动画、动画组、转场动画，如何通过UIView的装饰方法对这..
             </p>
         </div>
     </a>
@@ -416,7 +409,6 @@
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -431,7 +423,7 @@
         
         <div class="post-content-preview">
             <p>
-                大家都知道在iOS中实现一个动画相当简单，只要调用UIView的块代码即可实现一个动画效果，这在其他系统开发中基本不可能实现。下面通过一个简单的UIView进行一个图片放大动画效果演示：1234567891011121314151617181920212223#import &quot;KCMa..
+                大家都知道在iOS中实现一个动画相当简单，只要调用UIView的块代码即可实现一个动画效果，这在其他系统开发中基本不可能实现。下面通过一个简单的UIView进行一个图片放大动画效果演示：12345678910111213141516171819202122..
             </p>
         </div>
     </a>
@@ -439,7 +431,6 @@
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -455,7 +446,7 @@
         <div class="post-content-preview">
             <p>
                 xcode版本：8.3.3
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717..
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616..
             </p>
         </div>
     </a>
@@ -463,7 +454,6 @@
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -481,7 +471,7 @@
                 iphone平台一般要求3种规格的图片：1x、2x、3x，也是就Icon.png、Icon@2x.png、Icon@3x.png.
 注意：iOS所有图标的圆角效果由系统生成，给到的图标本身不能是圆角的。
 
-桌面图标 (app icon)for iPhone6 plus(@3x) : 180 x ..
+桌面图标 (app icon)for iPhone..
             </p>
         </div>
     </a>
@@ -492,13 +482,11 @@
 
 
 
-
 <!-- 翻页 pager -->
-
 <ul class="pager">
     
     <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
+        <a href="/">&larr; Newer Pages</a>
     </li>
     
     

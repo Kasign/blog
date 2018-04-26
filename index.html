@@ -127,8 +127,8 @@
 
 <style>
 
-    .custom-haojen-container .post-preview:nth-of-type(1),
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+    .custom-container .post-preview:nth-of-type(1),
+    .custom-container .post-preview-poetry:nth-of-type(1) {
         text-align: center;
         background-repeat: no-repeat;
         border-radius: 3px;
@@ -141,14 +141,14 @@
     }
 
     /*去掉诗歌的背景图片*/
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+    .custom-container .post-preview-poetry:nth-of-type(1) {
         background-image: none !important;
         background-color: rgba(255, 248, 220, 0.5);
     }
 
-    .custom-haojen-container .post-preview:nth-child(1) h2,
-    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
-    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+    .custom-container .post-preview:nth-child(1) h2,
+    .custom-container .post-preview:nth-child(1) .post-meta,
+    .custom-container .post-preview:nth-child(1) .post-subtitle {
         text-shadow: 0 0 40px rgba(0, 0, 0, 1);
         letter-spacing: 1px;
         color: #fff;
@@ -157,13 +157,13 @@
         padding-right: 60px;
     }
 
-    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+    .custom-container .post-preview:nth-child(1) .post-meta {
         font-size: .9em;
         font-weight: 300;
         margin-top: 0;
     }
 
-    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+    .custom-container .post-preview-poetry:nth-child(1) .post-subtitle {
         letter-spacing: 6px;
         font-size: 18px;
         font-family: unset;
@@ -172,74 +172,74 @@
     }
 
     /*不显示摘要*/
-    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+    .custom-container .post-preview:nth-child(1) .post-content-preview {
         display: none
     }
 
     /*只第一个显示背景图片*/
-    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+    .custom-container .post-preview:not(:nth-child(1)) {
         background-image: none !important;
     }
 
     /*第一个分界线去掉*/
-    .custom-haojen-container hr:nth-of-type(1) {
+    .custom-container hr:nth-of-type(1) {
         display: none;
     }
 
     /*主题*/
-    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+    .custom-container .post-preview:nth-of-type(1) > a {
         display: table-cell;
         vertical-align: middle;
     }
 
     /*诗词标题*/
-    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+    .custom-container .post-preview-poetry:nth-child(1) h2 {
         font-size: 35px;
         font-family: STKaiti;
         color: rgba(0, 0, 0, .8);
     }
 
-    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+    .custom-container .post-preview-poetry:nth-of-type(1) .post-meta {
         color: #0e2231;
     }
 
     @media (max-width: 768px) {
-        .custom-haojen-container .post-preview:nth-child(1) {
+        .custom-container .post-preview:nth-child(1) {
             height: 240px;
         }
 
-        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        .custom-container .post-preview-poetry:nth-child(1) h2 {
             font-size: 28px !important;
             margin-top: 0;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        .custom-container .post-preview:nth-child(1) .post-subtitle {
             font-size: 18px;
             font-weight: 400;
             padding-left: 0;
             padding-right: 0;
         }
 
-        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        .custom-container .post-preview:nth-of-type(1) > a {
             padding: 20px
         }
     }
 
     /*手机屏幕*/
     @media (max-width: 400px) {
-        .custom-haojen-container .post-preview:nth-child(1) {
+        .custom-container .post-preview:nth-child(1) {
             height: 195px;
         }
 
-        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        .custom-container .post-preview-poetry:nth-child(1) h2 {
             font-size: 20px !important;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        .custom-container .post-preview:nth-child(1) .post-subtitle {
             font-size: 16px;
         }
 
-        .custom-haojen-container .post-preview:nth-child(1) a {
+        .custom-container .post-preview:nth-child(1) a {
             padding: 30px 20px;
         }
     }
@@ -263,7 +263,7 @@
     </div>
 </div>
 <!-- Main Content -->
-<div class="container custom-haojen-container">
+<div class="container custom-container">
     <!-- Post Container -->
     <div class="row">
         <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
@@ -284,7 +284,7 @@
         <div class="post-content-preview">
             <p>
                 持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
-##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj ..
+##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];..
             </p>
         </div>
     </a>
@@ -292,53 +292,6 @@
 </div>
 
 <hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">
-        <h2 class="post-title">
-            C指针--函数形参int-p与int--p的区别
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                首先看代码：1234567void fun(int * p) ;int * pBuf = NULL;                                    //****************(1)fun(pBuf);                               ..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/KVO键值依赖/">
-        <h2 class="post-title">
-            KVO键值依赖
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                一个属性与有限个属性关联，例如下面的totalAge与user1和user2的age息息相关，只要其中一个改变，totalAge就会改变。12345678910111213////  Person.h////  Created by Walg on 2017/7/29.//  Copyright..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
 
 
 <div class="post-preview "
@@ -353,7 +306,7 @@
         
         <div class="post-content-preview">
             <p>
-                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正为数百万的开发者和超过十亿的用户提供服务。不管是开发新手，还是由经验丰富的程序员所组成的大型团队，我们都非常欢迎您为 App Store 开..
+                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正为数百万的开发者和超过十亿的用户提供服务。不管是开发新手，还是由经验丰富的程序员所组成的大型团队，我..
             </p>
         </div>
     </a>
@@ -363,12 +316,11 @@
 <hr>
 
 
-
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">
+    <a href="/2018/04/24/C指针详解(经典,非常详细)/">
         <h2 class="post-title">
-            iOS开发过程中遇到的新奇玩意儿
+            C指针详解(经典,非常详细)
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -376,8 +328,7 @@
         
         <div class="post-content-preview">
             <p>
-                持续更新中。。。另一篇&lt;[iOS 总结遇到的各种坑儿]&gt;
-##一、集合返回枚举对象123456789- (NSEnumerator *)keyEnumerator &#123;        return [array objectEnumerator];&#125;- (NSEnu..
+                前言:复杂类型说明要了解指针,多多少少会出现一些比较复杂的类型,所以我先介绍一下如何完全理解一个复杂类型,要理解复杂类型其实很简单,一个类型里会出现很多运算符,他们也像普通的表达式一样,有优先级,其优先级和运算优先级一样,所以我总结了一下其原则:从变量名处..
             </p>
         </div>
     </a>
@@ -386,6 +337,50 @@
 
 <hr>
 
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/KVO键值依赖/">
+        <h2 class="post-title">
+            KVO键值依赖
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                一个属性与有限个属性关联，例如下面的totalAge与user1和user2的age息息相关，只要其中一个改变，totalAge就会改变。12345678910111213////  Person.h////  Created by Walg on 201..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">
+        <h2 class="post-title">
+            iOS开发证书要点详解，ios证书详解
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                关于开发证书配置（Certificates&amp;Identifiers&amp;Provisioning Profiles），相信做iOS开发的同学没少被折腾。对于一个iOS开发小白、半吊子抑或老兵，或多或少会有以下不详、疑问、疑惑甚至困惑：
+本文将对..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
 
 
 <div class="post-preview "
@@ -402,7 +397,7 @@
             <p>
                 JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。
 ##JavaScriptCore中主要的类
- 1、JSContext — 在OC中创建JavaScript运行的上下文环境123456789101112131415161718192021222324..
+ 1、JSContext — 在OC中创建JavaScript运行的上下文环境1234567891011121314..
             </p>
         </div>
     </a>
@@ -410,7 +405,6 @@
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -426,7 +420,7 @@
         <div class="post-content-preview">
             <p>
                 1.1 WKScriptMessageHandler协议
-WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。123456/*! @abstract Invoked when a script message is receive..
+WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。123456/*! @abstract Invoked when a scrip..
             </p>
         </div>
     </a>
@@ -436,12 +430,11 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
 <hr>
 
 
-
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">
+    <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">
         <h2 class="post-title">
-            iOS开发证书要点详解，ios证书详解
+            iOS开发过程中遇到的新奇玩意儿
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -449,9 +442,8 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
         
         <div class="post-content-preview">
             <p>
-                关于开发证书配置（Certificates&amp;Identifiers&amp;Provisioning Profiles），相信做iOS开发的同学没少被折腾。对于一个iOS开发小白、半吊子抑或老兵，或多或少会有以下不详、疑问、疑惑甚至困惑：
-本文将对相关概念做个系统的梳理串烧。
-首先，假设..
+                持续更新中。。。另一篇&lt;[iOS 总结遇到的各种坑儿]&gt;
+##一、集合返回枚举对象123456789- (NSEnumerator *)keyEnumerator &#123;        return [array objectEnumer..
             </p>
         </div>
     </a>
@@ -459,7 +451,6 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
 </div>
 
 <hr>
-
 
 
 <div class="post-preview "
@@ -477,7 +468,7 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
                 
 以下使用方法能够较好的控制手势
 
-12345678910- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  &#123;      UIGestureRecognizerState state = [reco..
+12345678910- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  &#123;      UIGestureRecognize..
             </p>
         </div>
     </a>
@@ -487,12 +478,11 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
 <hr>
 
 
-
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/C指针详解(经典,非常详细)/">
+    <a href="/2018/04/24/C指针--函数形参int-p与int--p的区别/">
         <h2 class="post-title">
-            C指针详解(经典,非常详细)
+            C指针--函数形参int-p与int--p的区别
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -500,7 +490,7 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
         
         <div class="post-content-preview">
             <p>
-                前言:复杂类型说明要了解指针,多多少少会出现一些比较复杂的类型,所以我先介绍一下如何完全理解一个复杂类型,要理解复杂类型其实很简单,一个类型里会出现很多运算符,他们也像普通的表达式一样,有优先级,其优先级和运算优先级一样,所以我总结了一下其原则:从变量名处起,根据运算符优先级结合,一步一步分析...
+                首先看代码：1234567void fun(int * p) ;int * pBuf = NULL;                                    //****************(1)fun(pBuf);           ..
             </p>
         </div>
     </a>
@@ -511,14 +501,12 @@ WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过J
 
 
 
-
 <!-- 翻页 pager -->
-
 <ul class="pager">
     
     
     <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
+        <a href="/page/2/">Older Pages &rarr;</a>
     </li>
     
 </ul>

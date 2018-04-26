@@ -1013,7 +1013,7 @@ img::-moz-selection {
 }
 
 /*
-  @Haojen
+  @
 */
 
 .intro-header .site-heading .subheading {
@@ -1120,7 +1120,7 @@ img::-moz-selection {
 .navbar-custom.is-fixed .navbar-toggle span {
     background: black;
 }
-.post-title-haojen{
+.post-title-{
     display: none;
 }
 
@@ -1197,11 +1197,11 @@ img::-moz-selection {
     color: #eee;
     font-size: 15px;
 }
-.custom-haojen-container{
+.custom-container{
     padding-top: 0;
 }
 @media (min-width: 992px) {
-    .custom-haojen-container {
+    .custom-container {
         padding-top: 90px;
     }
 }
