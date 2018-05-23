@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        iOS开发常用数学函数｜undefined
+        Git中ssh配置（完美解决）｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://kasign.github.io/2018/04/24/iOS开发常用数学函数/">
+    <link rel="canonical" href="https://kasign.github.io/2018/05/23/Git中ssh配置（完美解决）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -145,12 +145,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>iOS开发常用数学函数</h1>
+                    <h1>Git中ssh配置（完美解决）</h1>
                     
                     <span class="meta">
                          作者 Kasign
                         <span>
-                          日期 2018-04-24
+                          日期 2018-05-23
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -168,32 +168,24 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <ol>
-<li>三角函数<br>　　double sin (double);正弦<br>　　double cos (double);余弦<br>　　double tan (double);正切 </li>
-<li>反三角函数<br>　　double asin (double); 结果介于[-PI/2, PI/2]<br>　　double acos (double); 结果介于[0, PI]<br>　　double atan (double); 反正切(主值), 结果介于[-PI/2, PI/2]<br>　　double atan2 (double, double); 反正切(整圆值), 结果介于[-PI, PI] </li>
-<li>双曲三角函数<br>　　double sinh (double);<br>　　double cosh (double);<br>　　double tanh (double); </li>
-<li>指数与对数<br>　　double exp (double);求取自然数e的幂<br>　　double sqrt (double);开平方<br>　　double log (double); 以e为底的对数<br>　　double log10 (double);以10为底的对数<br>　　double pow(double x, double y）;计算以x为底数的y次幂<br>　　float powf(float x, float y); 功能与pow一致，只是输入与输出皆为浮点数 </li>
-<li>取整<br>　　double ceil (double); 取上整<br>　　double floor (double); 取下整 </li>
-<li>绝对值<br>　　double fabs (double);求绝对值<br>　　double cabs(struct complex znum) ;求复数的绝对值 </li>
-<li>标准化浮点数<br>　　double frexp (double f, int <em>p); 标准化浮点数, f = x </em> 2^p, 已知f求x, p ( x介于[0.5, 1] )<br>　　double ldexp (double x, int p); 与frexp相反, 已知x, p求f </li>
-<li>取整与取余<br>　　double modf (double, double*); 将参数的整数部分通过指针回传, 返回小数部分<br>　　double fmod (double, double); 返回两参数相除的余数 </li>
-<li>其他<br>　　double hypot(double x, double y);已知直角三角形两个直角边长度，求斜边长度<br>　　double ldexp(double x, int exponent);计算x<em>(2的exponent次幂)<br>　　double poly(double x, int degree, double coeffs [] );计算多项式<br>　　nt matherr(struct exception </em>e);数学错误计算处理程序</li>
-</ol>
+                <h2 id="Git中ssh配置（完美解决）"><a href="#Git中ssh配置（完美解决）" class="headerlink" title="Git中ssh配置（完美解决）"></a>Git中ssh配置（完美解决）</h2><p>下面详述一下配置git的详细过程。</p>
+<p>命令行：</p>
+<h3 id="一、ssh-keygen-t-rsa-C-邮箱"><a href="#一、ssh-keygen-t-rsa-C-邮箱" class="headerlink" title="一、ssh-keygen -t rsa -C 邮箱"></a><strong>一、</strong>ssh-keygen -t rsa -C 邮箱</h3><p>注释：这里的邮箱加不加（单，双）引号都是一样的<br>点击enter之后如出现如下提示：</p>
+<h3 id="二、Enter-file-in-which-to-save-the-key-Users-yourname-ssh-id-rsa-Users-yourname-ssh-id-rsa-company"><a href="#二、Enter-file-in-which-to-save-the-key-Users-yourname-ssh-id-rsa-Users-yourname-ssh-id-rsa-company" class="headerlink" title="二、Enter file in which to save the key (/Users/yourname/.ssh/id_rsa): /Users/yourname/.ssh/id_rsa_company"></a><strong>二、</strong>Enter file in which to save the key (/Users/yourname/.ssh/id_rsa): /Users/yourname/.ssh/id_rsa_company</h3><p>注释：/Users/yourname/.ssh/id_rsa_company   这个是路径，生成的ssh文件名字就是id_rsa_company，可以根据喜好自定义</p>
+<h3 id="三、Enter-passphrase-empty-for-no-passphrase"><a href="#三、Enter-passphrase-empty-for-no-passphrase" class="headerlink" title="三、Enter passphrase (empty for no passphrase):"></a><strong>三、</strong>Enter passphrase (empty for no passphrase):</h3><p>注释：这里是让输入密码，可以不输入，避免以后每次都要输入密码的麻烦</p>
+<h3 id="四、The-key-fingerprint-is"><a href="#四、The-key-fingerprint-is" class="headerlink" title="四、The key fingerprint is:"></a><strong>四、</strong>The key fingerprint is:</h3><p>注释：出现上述一串包括一个image表示生成成功，打开id_rsa_company.pub文件，复制粘贴到你的git中的ssh配置中</p>
+<h3 id="五、ssh-add-ssh-id-rsa-company"><a href="#五、ssh-add-ssh-id-rsa-company" class="headerlink" title="五、ssh-add ~/.ssh/id_rsa_company"></a><strong>五、</strong>ssh-add ~/.ssh/id_rsa_company</h3><p>注释：这一步很重要，当时在做的时候缺少了这一步，一直报错，（在github中这步可以省略，可能是因为公开的原因）</p>
+<h3 id="六、检测是否成功"><a href="#六、检测是否成功" class="headerlink" title="六、检测是否成功"></a><strong>六、</strong>检测是否成功</h3><p>命令行：ssh -T <a href="mailto:git@100.10.10.100" target="_blank" rel="noopener">git@100.10.10.100</a><br>注释：这个命令行是检测是否配置成功的。（<a href="mailto:git@100.10.10.100" target="_blank" rel="noopener">git@100.10.10.100</a>替换成你的git地址，注意是地址，不是仓库）<br>点击enter之后：Are you sure you want to continue connecting (yes/no)? yes<br>输入yes<br>。。。<br>Welcome to GitLab<br><strong>恭喜，配置成功。可以尽情拉取推送代码了。</strong></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/04/24/iOS开发之多线程GCD/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发之多线程GCD">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来-CALayer/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发系列-让你的应用“动”起来--CALayer"> Next Post &rarr;</a>
+                        <a href="/2018/05/08/CATransform3D详解/" data-toggle="tooltip" data-placement="top"
+                           title="CATransform3D详解"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -209,7 +201,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git中ssh配置（完美解决）"><span class="toc-text">Git中ssh配置（完美解决）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、ssh-keygen-t-rsa-C-邮箱"><span class="toc-text">一、ssh-keygen -t rsa -C 邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Enter-file-in-which-to-save-the-key-Users-yourname-ssh-id-rsa-Users-yourname-ssh-id-rsa-company"><span class="toc-text">二、Enter file in which to save the key (/Users/yourname/.ssh/id_rsa): /Users/yourname/.ssh/id_rsa_company</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Enter-passphrase-empty-for-no-passphrase"><span class="toc-text">三、Enter passphrase (empty for no passphrase):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、The-key-fingerprint-is"><span class="toc-text">四、The key fingerprint is:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、ssh-add-ssh-id-rsa-company"><span class="toc-text">五、ssh-add ~/.ssh/id_rsa_company</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、检测是否成功"><span class="toc-text">六、检测是否成功</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
