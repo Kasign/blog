@@ -168,17 +168,15 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <ol>
-<li>三角函数<br>　　double sin (double);正弦<br>　　double cos (double);余弦<br>　　double tan (double);正切 </li>
-<li>反三角函数<br>　　double asin (double); 结果介于[-PI/2, PI/2]<br>　　double acos (double); 结果介于[0, PI]<br>　　double atan (double); 反正切(主值), 结果介于[-PI/2, PI/2]<br>　　double atan2 (double, double); 反正切(整圆值), 结果介于[-PI, PI] </li>
-<li>双曲三角函数<br>　　double sinh (double);<br>　　double cosh (double);<br>　　double tanh (double); </li>
-<li>指数与对数<br>　　double exp (double);求取自然数e的幂<br>　　double sqrt (double);开平方<br>　　double log (double); 以e为底的对数<br>　　double log10 (double);以10为底的对数<br>　　double pow(double x, double y）;计算以x为底数的y次幂<br>　　float powf(float x, float y); 功能与pow一致，只是输入与输出皆为浮点数 </li>
-<li>取整<br>　　double ceil (double); 取上整<br>　　double floor (double); 取下整 </li>
-<li>绝对值<br>　　double fabs (double);求绝对值<br>　　double cabs(struct complex znum) ;求复数的绝对值 </li>
-<li>标准化浮点数<br>　　double frexp (double f, int <em>p); 标准化浮点数, f = x </em> 2^p, 已知f求x, p ( x介于[0.5, 1] )<br>　　double ldexp (double x, int p); 与frexp相反, 已知x, p求f </li>
-<li>取整与取余<br>　　double modf (double, double*); 将参数的整数部分通过指针回传, 返回小数部分<br>　　double fmod (double, double); 返回两参数相除的余数 </li>
-<li>其他<br>　　double hypot(double x, double y);已知直角三角形两个直角边长度，求斜边长度<br>　　double ldexp(double x, int exponent);计算x<em>(2的exponent次幂)<br>　　double poly(double x, int degree, double coeffs [] );计算多项式<br>　　nt matherr(struct exception </em>e);数学错误计算处理程序</li>
-</ol>
+                <h3 id="1-三角函数"><a href="#1-三角函数" class="headerlink" title="1.  三角函数"></a>1.  三角函数</h3><p>　　double sin (double);正弦<br>　　double cos (double);余弦<br>　　double tan (double);正切 </p>
+<h3 id="2-反三角函数"><a href="#2-反三角函数" class="headerlink" title="2.  反三角函数"></a>2.  反三角函数</h3><p>　　double asin (double); 结果介于[-PI/2, PI/2]<br>　　double acos (double); 结果介于[0, PI]<br>　　double atan (double); 反正切(主值), 结果介于[-PI/2, PI/2]<br>　　double atan2 (double, double); 反正切(整圆值), 结果介于[-PI, PI] </p>
+<h3 id="3-双曲三角函数"><a href="#3-双曲三角函数" class="headerlink" title="3.  双曲三角函数"></a>3.  双曲三角函数</h3><p>　　double sinh (double);<br>　　double cosh (double);<br>　　double tanh (double); </p>
+<h3 id="4-指数与对数"><a href="#4-指数与对数" class="headerlink" title="4. 指数与对数"></a>4. 指数与对数</h3><p>　　double exp (double);求取自然数e的幂<br>　　double sqrt (double);开平方<br>　　double log (double); 以e为底的对数<br>　　double log10 (double);以10为底的对数<br>　　double pow(double x, double y）;计算以x为底数的y次幂<br>　　float powf(float x, float y); 功能与pow一致，只是输入与输出皆为浮点数 </p>
+<h3 id="5-取整"><a href="#5-取整" class="headerlink" title="5. 取整"></a>5. 取整</h3><p>　　double ceil (double); 取上整<br>　　double floor (double); 取下整 </p>
+<h3 id="6-绝对值"><a href="#6-绝对值" class="headerlink" title="6. 绝对值"></a>6. 绝对值</h3><p>　　double fabs (double);求绝对值<br>　　double cabs(struct complex znum) ;求复数的绝对值 </p>
+<h3 id="7-标准化浮点数"><a href="#7-标准化浮点数" class="headerlink" title="7.  标准化浮点数"></a>7.  标准化浮点数</h3><p>　　double frexp (double f, int <em>p); 标准化浮点数, f = x </em> 2^p, 已知f求x, p ( x介于[0.5, 1] )<br>　　double ldexp (double x, int p); 与frexp相反, 已知x, p求f </p>
+<h3 id="8-取整与取余"><a href="#8-取整与取余" class="headerlink" title="8. 取整与取余"></a>8. 取整与取余</h3><p>　　double modf (double, double*); 将参数的整数部分通过指针回传, 返回小数部分<br>　　double fmod (double, double); 返回两参数相除的余数 </p>
+<h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a>9. 其他</h3><p>　　double hypot(double x, double y);已知直角三角形两个直角边长度，求斜边长度<br>　　double ldexp(double x, int exponent);计算x<em>(2的exponent次幂)<br>　　double poly(double x, int degree, double coeffs [] );计算多项式<br>　　nt matherr(struct exception </em>e);数学错误计算处理程序</p>
 
                 <hr>
                 
@@ -186,14 +184,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/04/24/iOS开发之多线程GCD/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发之多线程GCD">&larr; Previous Post</a>
+                        <a href="/2018/04/24/iOS-聊聊第一响应/" data-toggle="tooltip" data-placement="top"
+                           title="iOS-聊聊第一响应">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来-CALayer/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发系列-让你的应用“动”起来--CALayer"> Next Post &rarr;</a>
+                        <a href="/2018/04/24/iOS开发之多线程GCD/" data-toggle="tooltip" data-placement="top"
+                           title="iOS开发之多线程GCD"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -209,7 +207,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-三角函数"><span class="toc-text">1.  三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-反三角函数"><span class="toc-text">2.  反三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-双曲三角函数"><span class="toc-text">3.  双曲三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-指数与对数"><span class="toc-text">4. 指数与对数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-取整"><span class="toc-text">5. 取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-绝对值"><span class="toc-text">6. 绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-标准化浮点数"><span class="toc-text">7.  标准化浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-取整与取余"><span class="toc-text">8. 取整与取余</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-其他"><span class="toc-text">9. 其他</span></a></li></ol>
                 </div>
             </div>
         </div>
