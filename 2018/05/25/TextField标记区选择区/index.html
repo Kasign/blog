@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        iOS-开发中手势方法的使用｜undefined
+        TextField标记区选择区｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://kasign.github.io/2018/04/24/iOS-开发中手势方法的使用/">
+    <link rel="canonical" href="https://kasign.github.io/2018/05/25/TextField标记区选择区/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -145,12 +145,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>iOS-开发中手势方法的使用</h1>
+                    <h1>TextField标记区选择区</h1>
                     
                     <span class="meta">
                          作者 Kasign
                         <span>
-                          日期 2018-04-24
+                          日期 2018-05-25
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -169,26 +169,54 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <ul>
-<li>以下使用方法能够较好的控制手势</li>
+<li>(void)resetTextWithNoWhite {</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  </span><br><span class="line">&#123;  </span><br><span class="line">    UIGestureRecognizerState state = [recognizer state];  </span><br><span class="line">      if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)  </span><br><span class="line">    &#123;  </span><br><span class="line">        CGFloat scale = [recognizer scale];  </span><br><span class="line">        [recognizer.view setTransform:CGAffineTransformScale(recognizer.view.transform, scale, scale)];  </span><br><span class="line">        [recognizer setScale:1.0];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)rotationGestureDetected:(UIRotationGestureRecognizer *)recognizer  </span><br><span class="line">&#123;  </span><br><span class="line">    UIGestureRecognizerState state = [recognizer state];  </span><br><span class="line">      </span><br><span class="line">    if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)  </span><br><span class="line">    &#123;  </span><br><span class="line">        CGFloat rotation = [recognizer rotation];  </span><br><span class="line">        [recognizer.view setTransform:CGAffineTransformRotate(recognizer.view.transform, rotation)];  </span><br><span class="line">        [recognizer setRotation:0];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)panGestureDetected:(UIPanGestureRecognizer *)recognizer  </span><br><span class="line">&#123;  </span><br><span class="line">    UIGestureRecognizerState state = [recognizer state];  </span><br><span class="line">      </span><br><span class="line">    if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)  </span><br><span class="line">    &#123;  </span><br><span class="line">        CGPoint translation = [recognizer translationInView:recognizer.view];  </span><br><span class="line">        [recognizer.view setTransform:CGAffineTransformTranslate(recognizer.view.transform, translation.x, translation.y)];  </span><br><span class="line">        [recognizer setTranslation:CGPointZero inView:recognizer.view];  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>NSString * textString = self.text;
+NSRange    markedRang = [self markedRang];
+NSInteger  position   = markedRang.location;
+NSInteger  length     = markedRang.length;
+NSString * markedText = [textString substringWithRange:markedRang];//取出被标记的文字
+textString = [textString stringByReplacingCharactersInRange:markedRang withString:@&quot;&quot;];//暂时替换掉被标记的文字
+
+NSRange whiteRang = NSMakeRange(0, 0);
+whiteRang = [textString rangeOfString:@&quot; &quot;];//找出剩下的文字中空格的位置
+while (whiteRang.length &gt; 0) {
+    textString = [textString stringByReplacingCharactersInRange:whiteRang withString:@&quot;&quot;];
+    if (position &gt; whiteRang.location) {
+        position = position - whiteRang.length;
+    }
+    whiteRang = [textString rangeOfString:@&quot; &quot;];
+}
+textString = [textString stringByReplacingCharactersInRange:NSMakeRange(position, 0) withString:markedText];//替换回
+NSLog(@&quot;*******\n markedText:%@ \n position:%ld \n length:%ld \n ******&quot;,markedText,(long)position,(long)length);
+if (markedText.length) {
+    [UIView performWithoutAnimation:^{
+        [self setMarkedText:textString selectedRange:NSMakeRange(position, markedText.length)];
+        [self setSelectedRange:NSMakeRange(position + markedText.length, 0)];
+    }];
+} else {
+    [self setText:textString];
+}
+</code></pre><p>}</p>
+<ul>
+<li><p>(NSRange)markedRang<br>{<br>  UITextPosition  <em> beginning      = self.beginningOfDocument;<br>  UITextRange     </em> markedRang     = self.markedTextRange;<br>  UITextPosition  <em> markedStart    = markedRang.start;<br>  UITextPosition  </em> markedEnd      = markedRang.end;<br>  const NSInteger location = [self offsetFromPosition:beginning toPosition:markedStart];<br>  const NSInteger length   = [self offsetFromPosition:markedStart toPosition:markedEnd];<br>  return NSMakeRange(location, length);<br>}</p>
+</li>
+<li><p>(NSRange)selectedRange<br>{<br>  UITextPosition  <em> beginning      = self.beginningOfDocument;<br>  UITextRange     </em> selectedRange  = self.selectedTextRange;<br>  UITextPosition  <em> selectionStart = selectedRange.start;<br>  UITextPosition  </em> selectionEnd   = selectedRange.end;<br>  const NSInteger location = [self offsetFromPosition:beginning toPosition:selectionStart];<br>  const NSInteger length   = [self offsetFromPosition:selectionStart toPosition:selectionEnd];</p>
+<p>  return NSMakeRange(location, length);<br>}</p>
+</li>
+<li><p>(void)setSelectedRange:(NSRange)range  // 备注：UITextField必须为第一响应者才有效<br>{<br>  UITextPosition   <em> beginning      = self.beginningOfDocument;<br>  UITextPosition   </em> startPosition  = [self positionFromPosition:beginning offset:range.location];<br>  UITextPosition   <em> endPosition    = [self positionFromPosition:beginning offset:range.location + range.length];<br>  UITextRange      </em> selectionRange = [self textRangeFromPosition:startPosition toPosition:endPosition];<br>  [self setSelectedTextRange:selectionRange];<br>}</p>
+</li>
+</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来-CALayer/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发系列-让你的应用“动”起来--CALayer">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/" data-toggle="tooltip" data-placement="top"
-                           title="iOS-copy与strong声明属性时的区别"> Next Post &rarr;</a>
+                        <a href="/2018/05/23/Git中ssh配置（完美解决）/" data-toggle="tooltip" data-placement="top"
+                           title="Git中ssh配置（完美解决）"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
