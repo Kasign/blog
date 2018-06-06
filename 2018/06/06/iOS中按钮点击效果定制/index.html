@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        iOS开发过程中遇到的新奇玩意儿｜undefined
+        iOS中按钮点击效果定制｜undefined
         
     </title>
 
-    <link rel="canonical" href="https://kasign.github.io/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">
+    <link rel="canonical" href="https://kasign.github.io/2018/06/06/iOS中按钮点击效果定制/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -145,15 +145,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>iOS开发过程中遇到的新奇玩意儿</h1>
+                    <h1>iOS中按钮点击效果定制</h1>
                     
                     <span class="meta">
                          作者 Kasign
                         <span>
-                          日期 2018-04-24
+                          日期 2018-06-06
                          </span>
                     </span>
                     <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#UIButton"
+                           title="UIButton">UIButton</a>
                         
                     </div>
                 </div>
@@ -168,28 +171,20 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>持续更新中。。。另一篇&lt;[iOS 总结遇到的各种坑儿]&gt;</p>
-<p>##一、集合返回枚举对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (NSEnumerator *)keyEnumerator &#123;</span><br><span class="line">    </span><br><span class="line">    return [array objectEnumerator];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (NSEnumerator *)reverseKeyEnumerator &#123;</span><br><span class="line">    </span><br><span class="line">    return [array reverseObjectEnumerator];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上的NSEnumerator ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">官方解释：</span><br><span class="line">NSEnumerator</span><br><span class="line"> is an abstract class, instances of whose subclasses enumerate collections of other objects, such as arrays and dictionaries.</span><br><span class="line">All creation methods are defined in the collection classes—such as NSArray</span><br><span class="line">, NSSet</span><br><span class="line">, and NSDictionary</span><br><span class="line">—which provide special NSEnumerator</span><br><span class="line"> objects with which to enumerate their contents. For example, NSArray</span><br><span class="line"> has two methods that return an NSEnumerator</span><br><span class="line">object: [objectEnumerator](apple-reference-documentation://hcQ1W7GHf_) and [reverseObjectEnumerator](apple-reference-documentation://hc41c-0oVQ). NSDictionary</span><br><span class="line">also has two methods that return an NSEnumerator</span><br><span class="line"> object: [keyEnumerator](apple-reference-documentation://hc-hIDsaE8) and [objectEnumerator](apple-reference-documentation://hc7rb-nJ5L). These methods let you enumerate the contents of a dictionary by key or by value, respectively.</span><br><span class="line">You send [nextObject](apple-reference-documentation://hcp9Mbgcbv) repeatedly to a newly created NSEnumerator</span><br><span class="line">object to have it return the next object in the original collection. When the collection is exhausted, nil</span><br><span class="line"> is returned. You cannot “reset” an enumerator after it has exhausted its collection. To enumerate a collection again, you need a new enumerator.</span><br><span class="line">The enumerator subclasses used by NSArray</span><br><span class="line">, NSDictionary</span><br><span class="line">, and NSSet</span><br><span class="line"> retain the collection during enumeration. When the enumeration is exhausted, the collection is released.</span><br><span class="line">**Note**In Objective-C, it is not safe to modify a mutable collection while enumerating through it. Some enumerators may currently allow enumeration of a collection that is modified, but this behavior is not guaranteed to be supported in the future.</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">官方解释译文：</span><br><span class="line">NSEnumerator是一个抽象类，其子类枚举其他对象（如数组和字典）的集合的实例。</span><br><span class="line">所有创建方法都在集合类中定义，例如NSArray，NSSet和NSDictionary，它们提供用于枚举其内容的特殊NSEnumerator对象。例如，NSArray有两个返回NSEnumerator对象的方法：objectEnumerator和reverseObjectEnumerator。 NSDictionary还有两个返回NSEnumerator对象的方法：keyEnumerator和objectEnumerator。这些方法可以分别按键或值枚举字典的内容。</span><br><span class="line">您将nextObject重复发送到新创建的NSEnumerator对象，以使其返回原始集合中的下一个对象。收集用尽时，返回零。枚举器耗尽其收集后，您无法“重置”。要再次枚举一个集合，您需要一个新的枚举器。</span><br><span class="line">NSArray，NSDictionary和NSSet使用的枚举子子类在枚举期间保留集合。枚举耗尽时，集合被释放。</span><br><span class="line">注意</span><br><span class="line">在Objective-C中，通过枚举来修改可变集合是不安全的。一些枚举者可能现在允许枚举一个被修改的集合，但这种行为不能保证在将来被支持。</span><br></pre></td></tr></table></figure>
-<p>##二、ios字体<br>ios9以上 默认字体是 苹方字体<br>ios8 默认字体是 常州华文的Heiti SC。</p>
-<p>##三、报黄提醒</p>
-<p>#define FLYRefreshDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)</p>
+                <p>UIButton的几个不常用的属性，总是会忘记，在此记录一下，避免遇到问题到处查</p>
+<p>@property(nonatomic)          BOOL         adjustsImageWhenHighlighted;    // default is YES. if YES, image is drawn darker when highlighted(pressed)</p>
+<p>@property(nonatomic)          BOOL         adjustsImageWhenDisabled;       // default is YES. if YES, image is drawn lighter when disabled</p>
+<p>@property(nonatomic)          BOOL         showsTouchWhenHighlighted __TVOS_PROHIBITED;      // default is NO. if YES, show a simple feedback (currently a glow) while highlighted</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来-CALayer/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发系列-让你的应用“动”起来--CALayer">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/04/24/iOS开发常用数学函数/" data-toggle="tooltip" data-placement="top"
-                           title="iOS开发常用数学函数"> Next Post &rarr;</a>
+                        <a href="/2018/05/25/TextField标记区选择区/" data-toggle="tooltip" data-placement="top"
+                           title="TextField标记区选择区"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -226,6 +221,9 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#UIButton"
+                           title="UIButton">UIButton</a>
                         
                     </div>
                 </section>
