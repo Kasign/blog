@@ -155,6 +155,9 @@
                     </span>
                     <div class="tags text-center">
                         
+                        <a class="tag" href="/tags/#指针"
+                           title="指针">指针</a>
+                        
                     </div>
                 </div>
             </div>
@@ -175,11 +178,9 @@
 <p>在 (4) 中，malloc申请一块内存，并返回指向此内存的地址，并给了p，此时 p 指向了malloc申请的内存，p有了新的地址，与pBuf不再相等，不再为0x00007fff5fbff620。而此时pBuf却没有改变，依然是0x00007fff5fbff620。</p>
 <p>所有这种方法并不会为pBuf改变什么，仍然指向NULL。但是pBuf是有内存地址的(初始化的时候就有),却指向NULL，即并没有开辟内存，所有不能对pBuf进行赋值，因为其没有内存存储值。</p>
 <p>再看另一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void fun(int ** p) ;</span><br><span class="line">int * pBuf = NULL;                                     //****************(1)</span><br><span class="line">fun(&amp;pBuf);                                            //****************(2)</span><br><span class="line">void fun(int ** p)                                     //****************(3)</span><br><span class="line">&#123;</span><br><span class="line">      *p = (int*)malloc(10*sizeof(int));               //****************(4)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>同样的分析一下上面每行代码中都发生了什么：</p>
-<p> 在  (1) 中，与第一段代码没什么区别。假如：pBuf = 0x00007fff5fbff620，&amp;pBuf=0x00007fffaaae0f70，* pBuf = NULL。</p>
-<p>在 (2)  (3)中，&amp;pBuf作为实参传入函数fun(int <strong> p)中(p为形参，此时p为int</strong> 类型，即为指针的指针)，p=&amp;pBuf(0x00007fffaaae0f70)。指向 int<em> 类型，即指向了指针，这个指针其实就是pBuf，即 p 指向了 pBuf ，所以  </em> p其实就是 pBuf (0x00007fff5fbff620)。此时别忘记，0x00007fff5fbff620 是指向NULL的。</p>
+<p>同样的分析一下上面每行代码中都发生了什么：<br>在  (1) 中，与第一段代码没什么区别。假如：pBuf = 0x00007fff5fbff620，&amp;pBuf=0x00007fffaaae0f70，<em> pBuf = NULL。<br>在 (2)  (3)中，&amp;pBuf作为实参传入函数fun(int <strong> p)中(p为形参，此时p为int</strong> 类型，即为指针的指针)，p=&amp;pBuf(0x00007fffaaae0f70)。指向 int</em> 类型，即指向了指针，这个指针其实就是pBuf，即 p 指向了 pBuf ，所以  * p其实就是 pBuf (0x00007fff5fbff620)。此时别忘记，0x00007fff5fbff620 是指向NULL的。</p>
 <p>在 (4) 中，malloc申请一块内存，并返回指向此内存的地址，并给了 <em>p，此时 </em>p 指向了malloc申请的内存。此时 p依然没有改变，与&amp;pBuf相等(0x00007fffaaae0f70)，但是p指向的地址却改变了，指向了一块新的内存。所以0x00007fffaaae0f70指向的一个新的内存地址，而这个内存地址也指向的一块内存，不再是NULL。</p>
-<p>总结：<br>第一段代码，传入了指向空内存的地址，最后改变了形参p的地址，与传入的pBuf不再相等，所有没有对pBuf进行改变什么。<br>第二段代码，传入了指向指针pBuf的指针，最后改变的是p指向的地址，而p依然是指向指针pBuf的指针。最后其实是改变了传入的指针的指向，即改变了&amp;pBuf的指向，让其指向了新的地址。</p>
+<p><strong>总结：</strong><br>第一段代码，传入了指向空内存的地址，最后改变了形参p的地址，与传入的pBuf不再相等，所有没有对pBuf进行改变什么。<br>第二段代码，传入了指向指针pBuf的指针，最后改变的是p指向的地址，而p依然是指向指针pBuf的指针。最后其实是改变了传入的指针的指向，即改变了&amp;pBuf的指向，让其指向了新的地址。</p>
 
                 <hr>
                 
@@ -187,14 +188,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/04/24/KVO键值依赖/" data-toggle="tooltip" data-placement="top"
-                           title="KVO键值依赖">&larr; Previous Post</a>
+                        <a href="/2018/04/24/iOS-开发中手势方法的使用/" data-toggle="tooltip" data-placement="top"
+                           title="iOS-开发中手势方法的使用">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/04/24/App-Store-审核指南/" data-toggle="tooltip" data-placement="top"
-                           title="App-Store-审核指南"> Next Post &rarr;</a>
+                        <a href="/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/" data-toggle="tooltip" data-placement="top"
+                           title="iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -231,6 +232,9 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#指针"
+                           title="指针">指针</a>
                         
                     </div>
                 </section>

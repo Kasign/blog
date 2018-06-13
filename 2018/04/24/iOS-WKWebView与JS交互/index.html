@@ -155,6 +155,15 @@
                     </span>
                     <div class="tags text-center">
                         
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
+                        
+                        <a class="tag" href="/tags/#js"
+                           title="js">js</a>
+                        
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
+                        
                     </div>
                 </div>
             </div>
@@ -168,13 +177,10 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h3 id="一、WK协议"><a href="#一、WK协议" class="headerlink" title="一、WK协议"></a>一、WK协议</h3><p>1.1 WKScriptMessageHandler协议</p>
-<p>WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*! @abstract Invoked when a script message is received from a webpage.</span><br><span class="line"> @param userContentController The user content controller invoking the</span><br><span class="line"> delegate method.</span><br><span class="line"> @param message The script message received.</span><br><span class="line"> */</span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;</span><br></pre></td></tr></table></figure></p>
+                <h3 id="一、WK协议"><a href="#一、WK协议" class="headerlink" title="一、WK协议"></a>一、WK协议</h3><h4 id="1-1-WKScriptMessageHandler协议"><a href="#1-1-WKScriptMessageHandler协议" class="headerlink" title="1.1 WKScriptMessageHandler协议"></a>1.1 WKScriptMessageHandler协议</h4><p>WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*! @abstract Invoked when a script message is received from a webpage.</span><br><span class="line"> @param userContentController The user content controller invoking the</span><br><span class="line"> delegate method.</span><br><span class="line"> @param message The script message received.</span><br><span class="line"> */</span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;</span><br></pre></td></tr></table></figure></p>
 <p>从协议中我们可以看出这里使用了两个类WKUserContentController和WKScriptMessage。WKUserContentController可以理解为调度器，WKScriptMessage则是携带的数据。</p>
-<p>1.2 WKUserContentController</p>
-<p>WKUserContentController有两个核心方法，也是它的核心功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)addUserScript:(WKUserScript *)userScript;: js注入，即向网页中注入我们的js方法，这是一个非常强大的功能，开发中要慎用。</span><br><span class="line">- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;：添加供js调用oc的桥梁。这里的name对应WKScriptMessage中的name，多数情况下我们认为它就是方法名。</span><br></pre></td></tr></table></figure></p>
-<p>1.3 WKScriptMessage</p>
-<p>WKScriptMessage就是js通知oc的数据。其中有两个核心属性用的很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, readonly, copy) NSString *name; ：对应- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;添加的name。</span><br><span class="line">@property (nonatomic, readonly, copy) id body;：携带的核心数据。</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-2-WKUserContentController"><a href="#1-2-WKUserContentController" class="headerlink" title="1.2 WKUserContentController"></a>1.2 WKUserContentController</h4><p>WKUserContentController有两个核心方法，也是它的核心功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)addUserScript:(WKUserScript *)userScript;: js注入，即向网页中注入我们的js方法，这是一个非常强大的功能，开发中要慎用。</span><br><span class="line">- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;：添加供js调用oc的桥梁。这里的name对应WKScriptMessage中的name，多数情况下我们认为它就是方法名。</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-3-WKScriptMessage"><a href="#1-3-WKScriptMessage" class="headerlink" title="1.3 WKScriptMessage"></a>1.3 WKScriptMessage</h4><p>WKScriptMessage就是js通知oc的数据。其中有两个核心属性用的很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, readonly, copy) NSString *name; ：对应- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;添加的name。</span><br><span class="line">@property (nonatomic, readonly, copy) id body;：携带的核心数据。</span><br></pre></td></tr></table></figure></p>
 <p>js调用时只需<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.webkit.messageHandlers.&lt;name&gt;.postMessage(&lt;messageBody&gt;)</span><br></pre></td></tr></table></figure></p>
 <p>这里的name就是我们添加的name。</p>
 <h3 id="二、JS调OC代码"><a href="#二、JS调OC代码" class="headerlink" title="二、JS调OC代码"></a>二、JS调OC代码</h3><p>JS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta content=&quot;width=device-width,initial-scale=1,user-scalable=no&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">&lt;body style=&quot;background-color: white;&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        function jsCallNative() &#123;</span><br><span class="line">           window.webkit.messageHandlers.callNativeAndSend.postMessage(&apos;callcallcall&apos;);</span><br><span class="line">           alert(callNative);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;jsCallNative()&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
@@ -200,14 +206,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/04/24/App-Store-审核指南/" data-toggle="tooltip" data-placement="top"
-                           title="App-Store-审核指南">&larr; Previous Post</a>
+                        <a href="/2018/04/24/iOS-JavaScriptCore使用/" data-toggle="tooltip" data-placement="top"
+                           title="iOS-JavaScriptCore使用">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/04/24/C指针详解-经典-非常详细/" data-toggle="tooltip" data-placement="top"
-                           title="C指针详解(经典,非常详细)"> Next Post &rarr;</a>
+                        <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/" data-toggle="tooltip" data-placement="top"
+                           title="iOS开发过程中遇到的新奇玩意儿"> Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -223,7 +229,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、WK协议"><span class="toc-text">一、WK协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、JS调OC代码"><span class="toc-text">二、JS调OC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、OC调JS代码"><span class="toc-text">三、OC调JS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、优化"><span class="toc-text">四、优化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、WK协议"><span class="toc-text">一、WK协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-WKScriptMessageHandler协议"><span class="toc-text">1.1 WKScriptMessageHandler协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-WKUserContentController"><span class="toc-text">1.2 WKUserContentController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-WKScriptMessage"><span class="toc-text">1.3 WKScriptMessage</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、JS调OC代码"><span class="toc-text">二、JS调OC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、OC调JS代码"><span class="toc-text">三、OC调JS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、优化"><span class="toc-text">四、优化</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -244,6 +250,15 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
+                        
+                        <a class="tag" href="/tags/#js"
+                           title="js">js</a>
+                        
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
                         
                     </div>
                 </section>
