@@ -308,6 +308,9 @@ article blockquote cite:before{
 }
 
 .navbar-custom .nav li a {
+    /*
+    顶部 Home 和 tags
+    */
     text-transform: uppercase;
     font-size: 12px;
     line-height: 20px;
@@ -664,12 +667,13 @@ form .row:first-child .floating-label-form-group {
 .pager li > a,
 .pager li > span {
     /* Hux learn from
+       *     每篇文章 底部切换文章按钮
        *     TypeIsBeautiful,
        *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
        */
     font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
     line-height: 1.7;
-    text-transform: uppercase;
+    text-transform: none;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 1px;

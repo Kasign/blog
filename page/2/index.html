@@ -273,29 +273,6 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">
-        <h2 class="post-title">
-            iOS开发过程中遇到的新奇玩意儿
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                持续更新中。。。另一篇&lt;[iOS 总结遇到的各种坑儿]&gt;
-一、集合返回枚举对象123456789- (NSEnumerator *)keyEnu..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
     <a href="/2018/04/24/iOS-开发中手势方法的使用/">
         <h2 class="post-title">
             iOS-开发中手势方法的使用
@@ -309,7 +286,7 @@
                 
 以下使用方法能够较好的控制手势
 
-12345678910- (void)pinchGestureDetected:(UIPinchGestureRecog..
+12345678910- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  &#123;      UIGestureRecognizerState state = [recognizer state];        if (stat..
             </p>
         </div>
     </a>
@@ -321,9 +298,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/C指针-函数形参int-p与int-p的区别/">
+    <a href="/2018/04/24/iOS-总结遇到的各种坑儿/">
         <h2 class="post-title">
-            C指针--函数形参int-p与int--p的区别
+            iOS-总结遇到的各种坑儿
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -331,7 +308,8 @@
         
         <div class="post-content-preview">
             <p>
-                首先看代码：1234567void fun(int * p) ;int * pBuf = NULL;                            ..
+                持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
+##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj = [NSJSONSerialization JSONObj..
             </p>
         </div>
     </a>
@@ -343,9 +321,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）/">
+    <a href="/2018/04/24/C指针详解-经典-非常详细/">
         <h2 class="post-title">
-            iOS-文字样式处理总结（字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等）
+            C指针详解(经典,非常详细)
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -353,7 +331,30 @@
         
         <div class="post-content-preview">
             <p>
-                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以..
+                前言:复杂类型说明要了解指针,多多少少会出现一些比较复杂的类型,所以我先介绍一下如何完全理解一个复杂类型,要理解复杂类型其实很简单,一个类型里会出现很多运算符,他们也像普通的表达式一样,有优先级,其优先级和运算优先级一样,所以我总结了一下其原则:从变量名处起,根据运算符优先级结合,一步一步分析.下面让我们先从简单的类型开始慢慢分析吧:1234567891..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS-画虚线的几种方式/">
+        <h2 class="post-title">
+            iOS-画虚线的几种方式
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                一、重写drawRect方法
+(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSetStrokeColorWithColor(currentC..
             </p>
         </div>
     </a>
@@ -375,29 +376,7 @@
         
         <div class="post-content-preview">
             <p>
-                一个属性与有限个属性关联，例如下面的totalAge与user1和user2的age息息相关，只要其中一个改变，totalAge就会改变。123456789..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-聊聊第一响应/">
-        <h2 class="post-title">
-            iOS-聊聊第一响应
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow..
+                一个属性与有限个属性关联，例如下面的totalAge与user1和user2的age息息相关，只要其中一个改变，totalAge就会改变。12345678910111213////  Person.h////  Created by Walg on 2017/7/29.//  Copyright © 2017年 Walg. All rights rese..
             </p>
         </div>
     </a>
@@ -420,7 +399,9 @@
         <div class="post-content-preview">
             <p>
                 目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。
-多线程相关概..
+多线程相关概念进程与线程的关系？
+
+进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的App会..
             </p>
         </div>
     </a>
@@ -442,7 +423,8 @@
         
         <div class="post-content-preview">
             <p>
-                1.  三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);..
+                1.  三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
+2.  反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double); 结果介于[0, PI]　　double at..
             </p>
         </div>
     </a>
@@ -465,7 +447,7 @@
         <div class="post-content-preview">
             <p>
                 #概览
-在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天将带大家一窥iOS动画全貌。在这里你可以看到iOS中如何使用图层精简非交互式..
+在iOS中随处都可以看到绚丽的动画效果，实现这些动画的过程并不复杂，今天将带大家一窥iOS动画全貌。在这里你可以看到iOS中如何使用图层精简非交互式绘图，如何通过核心动画创建基础动画、关键帧动画、动画组、转场动画，如何通过UIView的装饰方法对这些动画操作进行简化等。在今天的文章里您可以看到动画操作在iOS中是如何简单和高效，很多原来想做但是苦..
             </p>
         </div>
     </a>
@@ -487,7 +469,31 @@
         
         <div class="post-content-preview">
             <p>
-                大家都知道在iOS中实现一个动画相当简单，只要调用UIView的块代码即可实现一个动画效果，这在其他系统开发中基本不可能实现。下面通过一个简单的UIView..
+                大家都知道在iOS中实现一个动画相当简单，只要调用UIView的块代码即可实现一个动画效果，这在其他系统开发中基本不可能实现。下面通过一个简单的UIView进行一个图片放大动画效果演示：1234567891011121314151617181920212223#import &quot;KCMainViewController.h&quot;@inter..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">
+        <h2 class="post-title">
+            iOS开发证书要点详解，ios证书详解
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                关于开发证书配置（Certificates&amp;Identifiers&amp;Provisioning Profiles），相信做iOS开发的同学没少被折腾。对于一个iOS开发小白、半吊子抑或老兵，或多或少会有以下不详、疑问、疑惑甚至困惑：
+本文将对相关概念做个系统的梳理串烧。
+首先，假设你使用过Apple设备（iMac/iPad/iPhone）且..
             </p>
         </div>
     </a>
@@ -502,12 +508,12 @@
 <ul class="pager">
     
     <li class="previous">
-        <a href="/">&larr; Newer Page</a>
+        <a href="/">&larr; NEWER PAGE</a>
     </li>
     
     
     <li class="next">
-        <a href="/page/3/">Older Page &rarr;</a>
+        <a href="/page/3/">OLDER PAGE &rarr;</a>
     </li>
     
 </ul>
@@ -573,8 +579,6 @@
                     
                     
                     
-                    
-                    
                     <a href="/tags/#指针" title="指针"
                        rel="2">指针</a>
                     
@@ -615,6 +619,8 @@
                     
                     <a href="/tags/#layer" title="layer"
                        rel="2">layer</a>
+                    
+                    
                     
                     
                     

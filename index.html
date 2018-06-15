@@ -283,7 +283,7 @@
         
         <div class="post-content-preview">
             <p>
-                一、获取基本信息12345678910111213141516171819202122232425262728293031NSString *deviceN..
+                一、获取基本信息12345678910111213141516171819202122232425262728293031NSString *deviceName = [self getDeviceName]; // 这个方法后面会列出来NSLog(@&quot;设备型号--&gt;%@&quot;, deviceName);NSString *iPho..
             </p>
         </div>
     </a>
@@ -306,7 +306,7 @@
         <div class="post-content-preview">
             <p>
                 UIButton的几个不常用的属性，总是会忘记，在此记录一下，避免遇到问题到处查
-@property(nonatomic)          BOOL   ..
+@property(nonatomic)          BOOL         adjustsImageWhenHighlighted;    // default is YES. if YES, image is drawn darker when highligh..
             </p>
         </div>
     </a>
@@ -328,7 +328,8 @@
         
         <div class="post-content-preview">
             <p>
-                在调试UITextField控件的时候，有时候不得不满足各种奇怪(pa)的需求，因此必须了解各种api。只有掌握了足够的api，才能定制出我们想要的效果（满..
+                在调试UITextField控件的时候，有时候不得不满足各种奇怪(pa)的需求，因此必须了解各种api。只有掌握了足够的api，才能定制出我们想要的效果（满足各种奇葩需求）。
+1234567891011121314151617181920212223242526272829- (void)resetTextWithNoWhite &#123;      ..
             </p>
         </div>
     </a>
@@ -352,7 +353,8 @@
             <p>
                 Git中ssh配置（完美解决）下面详述一下配置git的详细过程。
 命令行：
-一、ssh-keygen -t rsa -C 邮箱注释：这里的邮箱加不加（单，双..
+一、ssh-keygen -t rsa -C 邮箱注释：这里的邮箱加不加（单，双）引号都是一样的点击enter之后如出现如下提示：
+二、Enter file in which to save the key (/Users/yourname/.ssh/id_rsa): /User..
             </p>
         </div>
     </a>
@@ -375,7 +377,8 @@
         <div class="post-content-preview">
             <p>
                 CATransform3D详解一、view图层既然要了解就必须先要了解view和layer之间的关系。
-1、view与layer职责在ios中，每个view..
+1、view与layer职责在ios中，每个view都至少会对应一个layer，layer主要负责绘制图层，显示效果。而view则是可以响应用户的触摸事件。属于各有各的分工。
+2、坐标系iOS中坐标系是一个三维坐标系，视角垂直于屏幕，x轴向右，y轴向下..
             </p>
         </div>
     </a>
@@ -387,9 +390,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-画虚线的几种方式/">
+    <a href="/2018/04/24/iOS-聊聊第一响应/">
         <h2 class="post-title">
-            iOS-画虚线的几种方式
+            iOS-聊聊第一响应
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -397,8 +400,7 @@
         
         <div class="post-content-preview">
             <p>
-                一、重写drawRect方法
-(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRe..
+                当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstResponder = [keyWindow performSelect..
             </p>
         </div>
     </a>
@@ -410,9 +412,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/C指针详解-经典-非常详细/">
+    <a href="/2018/04/24/C指针-函数形参int-p与int-p的区别/">
         <h2 class="post-title">
-            C指针详解(经典,非常详细)
+            C指针--函数形参int-p与int--p的区别
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -420,29 +422,7 @@
         
         <div class="post-content-preview">
             <p>
-                前言:复杂类型说明要了解指针,多多少少会出现一些比较复杂的类型,所以我先介绍一下如何完全理解一个复杂类型,要理解复杂类型其实很简单,一个类型里会出现很多运算..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/App-Store-审核指南/">
-        <h2 class="post-title">
-            App-Store-审核指南
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正..
+                首先看代码：1234567void fun(int * p) ;int * pBuf = NULL;                                    //****************(1)fun(pBuf);                                            //***************..
             </p>
         </div>
     </a>
@@ -465,7 +445,7 @@
         <div class="post-content-preview">
             <p>
                 JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。
-一、JavaScriptCore中主要的类1.1、JSCon..
+一、JavaScriptCore中主要的类1.1、JSContext — 在OC中创建JavaScript运行的上下文环境12345678910111213141516171819202122232425- (instancetype)init; // 创建J..
             </p>
         </div>
     </a>
@@ -487,7 +467,29 @@
         
         <div class="post-content-preview">
             <p>
-                一、WK协议1.1 WKScriptMessageHandler协议WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把..
+                一、WK协议1.1 WKScriptMessageHandler协议WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。123456/*! @abstract Invoked when a script message is received from a webpage. @param ..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/App-Store-审核指南/">
+        <h2 class="post-title">
+            App-Store-审核指南
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正为数百万的开发者和超过十亿的用户提供服务。不管是开发新手，还是由经验丰富的程序员所组成的大型团队，我们都非常欢迎您为 App Store 开发 app，并希望能够帮助您了解我们的准则，以确保您的 ap..
             </p>
         </div>
     </a>
@@ -503,7 +505,7 @@
     
     
     <li class="next">
-        <a href="/page/2/">Older Page &rarr;</a>
+        <a href="/page/2/">OLDER PAGE &rarr;</a>
     </li>
     
 </ul>
@@ -569,8 +571,6 @@
                     
                     
                     
-                    
-                    
                     <a href="/tags/#指针" title="指针"
                        rel="2">指针</a>
                     
@@ -611,6 +611,8 @@
                     
                     <a href="/tags/#layer" title="layer"
                        rel="2">layer</a>
+                    
+                    
                     
                     
                     
