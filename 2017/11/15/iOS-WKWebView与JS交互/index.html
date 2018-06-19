@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="iOS开发总结知识点">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Kasign" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        iOS-WKWebView与JS交互｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://kasign.github.io/2017/11/15/iOS-WKWebView与JS交互/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../../css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="../../../../css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Kasign
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>iOS-WKWebView与JS交互</h1>
+                    
+                    <span class="meta">
+                         作者 Kasign
+                        <span>
+                          日期 2017-11-15
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
+                        
+                        <a class="tag" href="/tags/#js"
+                           title="js">js</a>
+                        
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="一、WK协议"><a href="#一、WK协议" class="headerlink" title="一、WK协议"></a>一、WK协议</h3><h4 id="1-1-WKScriptMessageHandler协议"><a href="#1-1-WKScriptMessageHandler协议" class="headerlink" title="1.1 WKScriptMessageHandler协议"></a>1.1 WKScriptMessageHandler协议</h4><p>WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*! @abstract Invoked when a script message is received from a webpage.</span><br><span class="line"> @param userContentController The user content controller invoking the</span><br><span class="line"> delegate method.</span><br><span class="line"> @param message The script message received.</span><br><span class="line"> */</span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;</span><br></pre></td></tr></table></figure></p>
+<p>从协议中我们可以看出这里使用了两个类WKUserContentController和WKScriptMessage。WKUserContentController可以理解为调度器，WKScriptMessage则是携带的数据。</p>
+<h4 id="1-2-WKUserContentController"><a href="#1-2-WKUserContentController" class="headerlink" title="1.2 WKUserContentController"></a>1.2 WKUserContentController</h4><p>WKUserContentController有两个核心方法，也是它的核心功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)addUserScript:(WKUserScript *)userScript;: js注入，即向网页中注入我们的js方法，这是一个非常强大的功能，开发中要慎用。</span><br><span class="line">- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;：添加供js调用oc的桥梁。这里的name对应WKScriptMessage中的name，多数情况下我们认为它就是方法名。</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-3-WKScriptMessage"><a href="#1-3-WKScriptMessage" class="headerlink" title="1.3 WKScriptMessage"></a>1.3 WKScriptMessage</h4><p>WKScriptMessage就是js通知oc的数据。其中有两个核心属性用的很多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, readonly, copy) NSString *name; ：对应- (void)addScriptMessageHandler:(id &lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;添加的name。</span><br><span class="line">@property (nonatomic, readonly, copy) id body;：携带的核心数据。</span><br></pre></td></tr></table></figure></p>
+<p>js调用时只需<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.webkit.messageHandlers.&lt;name&gt;.postMessage(&lt;messageBody&gt;)</span><br></pre></td></tr></table></figure></p>
+<p>这里的name就是我们添加的name。</p>
+<h3 id="二、JS调OC代码"><a href="#二、JS调OC代码" class="headerlink" title="二、JS调OC代码"></a>二、JS调OC代码</h3><p>JS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;meta content=&quot;width=device-width,initial-scale=1,user-scalable=no&quot; name=&quot;viewport&quot;&gt;</span><br><span class="line">&lt;body style=&quot;background-color: white;&quot;&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        function jsCallNative() &#123;</span><br><span class="line">           window.webkit.messageHandlers.callNativeAndSend.postMessage(&apos;callcallcall&apos;);</span><br><span class="line">           alert(callNative);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;button type=&quot;button&quot; onclick = &quot;jsCallNative()&quot; style=&quot;width:100%; height:30px;&quot;/&gt;调用OC代码&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注意：window.webkit.messageHandlers.callNativeAndSend.postMessage(‘callcallcall’);这行代码才是调用oc的方法，方法名：callNativeAndSend 参数就是：callcallcall</p>
+<p>OC代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WKUserContentController *userContentController = [[WKUserContentController alloc] init];</span><br><span class="line">       [userContentController addScriptMessageHandler:self name:@&quot;callNativeAndSend&quot;];</span><br><span class="line">       [userContentController addScriptMessageHandler:self name:@&quot;NativeObject.shareString&quot;];</span><br><span class="line">       // WKWebView的配置</span><br><span class="line">       WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];</span><br><span class="line">       configuration.userContentController   = userContentController;</span><br><span class="line">       //创建WKWebView</span><br><span class="line">       </span><br><span class="line">       _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) configuration:configuration];</span><br></pre></td></tr></table></figure></p>
+<p>上面代码，是创建webView，并且告诉JS有哪些方法。</p>
+<p>Adding a script message handler with name name causes the JavaScript function window.webkit.messageHandlers.name.postMessage(messageBody) to be defined in all frames in all web views that use the user content controller.<br>译：添加名称名称的脚本消息处理程序会导致在所有使用用户内容控制器的Web视图的所有框架中定义JavaScript函数window.webkit.messageHandlers.name.postMessage（messageBody）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)addScriptMessageHandler:(id&lt;WKScriptMessageHandler&gt;)scriptMessageHandler name:(NSString *)name;</span><br></pre></td></tr></table></figure></p>
+<p>但是 [userContentController addScriptMessageHandler:self name:@”NativeObject.shareString”];亲测是无效的，其只能像[userContentController addScriptMessageHandler:self name:@”callNativeAndSend”];添加这种。</p>
+<p>当JS调用OC方法后，会执行以下回调，name是方法名，可以用其作区分判断，body是参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message&#123;</span><br><span class="line">    NSLog(@&quot;\n body:%@ \n name:%@&quot;,message.body,message.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外还有一种注入JS的方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)addUserScript:(WKUserScript *)userScript;: js注入，即向网页中注入我们的js方法，这是一个非常强大的功能，开发中要慎用。</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：在UIWebview中，当我们第一次给h5注入js方法后，在后续的页面操作过程中可能会丢失这个方法，也就是js不再能拿到这个方法。可能原因是：在h5页面操作过程中，创建了两个window，而我们加的js方法仍在第一个window上，在新的window上就拿不到了。在WKWebview中，丢失方法是因为js调用方法调早了，而我们还没有注入；js延迟调用问题不存在了。</strong> <strong>在WKWebview中用上述方式注入代码后会避免此问题出现*！！！</strong></p>
+<h3 id="三、OC调JS代码"><a href="#三、OC调JS代码" class="headerlink" title="三、OC调JS代码"></a>三、OC调JS代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[webView evaluateJavaScript:@&quot;globalObject.nativeCallJS(&apos;abc&apos;)&quot; completionHandler:^(id _Nullable data, NSError * _Nullable error) &#123;</span><br><span class="line">        if (error) &#123;</span><br><span class="line">            NSLog(@&quot;error:%@&quot;,error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<p>abc是传递给JS的参数，globalObject是JS中全局属性，nativeCallJS是其下的方法。</p>
+<h3 id="四、优化"><a href="#四、优化" class="headerlink" title="四、优化"></a>四、优化</h3><p>[userContentController addScriptMessageHandler:self name:@”callNativeAndSend”]<br>当我们添加注入方法时，以上代码会强引用self，即当前控制器，会导致再dealloc的时候self不会释放，解决办法是创建一个新类，并实现WKScriptMessageHandler代理方法。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">WeakScriptMessageDelegate.h</span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &lt;WebKit/WebKit.h&gt;</span><br><span class="line"></span><br><span class="line">@interface WeakScriptMessageDelegate : NSObject&lt;WKScriptMessageHandler&gt;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, weak) id&lt;WKScriptMessageHandler&gt; scriptDelegate;</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithDelegate:(id&lt;WKScriptMessageHandler&gt;)scriptDelegate;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">WeakScriptMessageDelegate.m</span><br><span class="line"></span><br><span class="line">#import &quot;WeakScriptMessageDelegate.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation WeakScriptMessageDelegate</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithDelegate:(id&lt;WKScriptMessageHandler&gt;)scriptDelegate</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        _scriptDelegate = scriptDelegate;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message</span><br><span class="line">&#123;</span><br><span class="line">    [self.scriptDelegate userContentController:userContentController didReceiveScriptMessage:message];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>尽管如此，在self里还是要在dealloc的时候移除方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[_wkWebView configuration].userContentController removeScriptMessageHandlerForName:@&quot;jsCallNative&quot;];</span><br></pre></td></tr></table></figure></p>
+<p>执行上述代码之后，self和WeakScriptMessageDelegate都能安全释放。</p>
+<p>推荐一个强大的苹果官方库，JavaScriptCore 以及 <a href="https://kasign.github.io/2018/04/24/iOS-JavaScriptCore%E4%BD%BF%E7%94%A8/">iOS JavaScriptCore使用</a>。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/12/08/App-Store-审核指南/"
+                           title="App-Store-审核指南">&larr; App-Store-审核指南</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/11/14/iOS-JavaScriptCore使用/"
+                           title="iOS-JavaScriptCore使用"> iOS-JavaScriptCore使用 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、WK协议"><span class="toc-text">一、WK协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-WKScriptMessageHandler协议"><span class="toc-text">1.1 WKScriptMessageHandler协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-WKUserContentController"><span class="toc-text">1.2 WKUserContentController</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-WKScriptMessage"><span class="toc-text">1.3 WKScriptMessage</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、JS调OC代码"><span class="toc-text">二、JS调OC代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、OC调JS代码"><span class="toc-text">三、OC调JS代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、优化"><span class="toc-text">四、优化</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
+                        
+                        <a class="tag" href="/tags/#js"
+                           title="js">js</a>
+                        
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Kasign 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Github by <a href="https://github.com/Kasign">Kasign</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kasign.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/avatar.jpg">
+</body>
+
+</html>

@@ -273,12 +273,89 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发系列-让你的应用“动”起来-CALayer/">
+    <a href="/2017/05/10/iOS-文字样式处理总结/">
+        <h2 class="post-title">
+            iOS-文字样式处理总结
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-05-10
+        </p>
+        
+        <h3 class="post-subtitle">
+            字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等
+        </h3>
+        
+        <div class="post-content-preview">
+            <p>
+                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
+1. 实例化方法和使用方法实例化方法：使用字符串初始化
+
+
+(id)initWith..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2017/03/16/iOS开发之多线程GCD/">
+        <h2 class="post-title">
+            iOS开发之多线程GCD
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-16
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。
+一、多线程相关概念进程与线程的关系？
+
+进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的Ap..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2017/03/02/iOS开发系列-让你的应用“动”起来-Core-Animation/">
+        <h2 class="post-title">
+            iOS开发系列-让你的应用“动”起来--Core-Animation
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                概论大家都知道在iOS中实现一个动画相当简单，只要调用UIView的块代码即可实现一个动画效果，这在其他系统开发中基本不可能实现。下面通过一个简单的UIView进行一个图片放大动画效果演示：1234567891011121314151617181920212223#import &quot;KCMainViewController.h&quot;@int..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2017/03/01/iOS开发系列-让你的应用“动”起来-CALayer/">
         <h2 class="post-title">
             iOS开发系列-让你的应用“动”起来--CALayer
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-01
         </p>
         
         <div class="post-content-preview">
@@ -295,65 +372,18 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-WKWebView与JS交互/">
+    <a href="/2017/02/24/iOS开发常用数学函数/">
         <h2 class="post-title">
-            iOS-WKWebView与JS交互
+            iOS开发常用数学函数
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-02-24
         </p>
         
         <div class="post-content-preview">
             <p>
-                一、WK协议1.1 WKScriptMessageHandler协议WKScriptMessageHandler其实就是一个遵循的协议，它能让网页通过JS把消息发送给OC。其中协议方法。123456/*! @abstract Invoked when a script message is received from a webpage. @param ..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/">
-        <h2 class="post-title">
-            iOS-copy与strong声明属性时的区别
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                内存管理，在iOS中开发中的地位重中只重。当然，你只了解表层，也是能够开发的。但是当出现各种奇葩行为时，这个时候就是考验一个人基本功的时候了。（目前整理的还浅显，有时候做一份详尽的）xcode版本：8.3.3
-1234567891011121314151617181920212223242526272829303132333435363738394041..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-App图标和启动画面尺寸/">
-        <h2 class="post-title">
-            iOS-App图标和启动画面尺寸
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                iphone平台一般要求3种规格的图片：1x、2x、3x，也是就Icon.png、Icon@2x.png、Icon@3x.png.
-注意：iOS所有图标的圆角效果由系统生成，给到的图标本身不能是圆角的。
-
-桌面图标 (app icon)for iPhone6 plus(@3x) : 180 x 180for iPhone 6/5s/5/4s/4(@2x)..
+                1.  三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
+2.  反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double); 结果介于[0, PI]　　double at..
             </p>
         </div>
     </a>
@@ -434,6 +464,10 @@
                     
                     
                     
+                    
+                    
+                    
+                    
                     <a href="/tags/#内存" title="内存"
                        rel="2">内存</a>
                     
@@ -441,6 +475,8 @@
                     
                     <a href="/tags/#指针" title="指针"
                        rel="2">指针</a>
+                    
+                    
                     
                     
                     

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="iOS开发总结知识点">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Kasign" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        iOS开发常用数学函数｜undefined
+        
+    </title>
+
+    <link rel="canonical" href="https://kasign.github.io/2017/02/24/iOS开发常用数学函数/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../../css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="../../../../css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Kasign
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>iOS开发常用数学函数</h1>
+                    
+                    <span class="meta">
+                         作者 Kasign
+                        <span>
+                          日期 2017-02-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#数学函数"
+                           title="数学函数">数学函数</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="1-三角函数"><a href="#1-三角函数" class="headerlink" title="1.  三角函数"></a>1.  三角函数</h3><p>　　double sin (double);正弦<br>　　double cos (double);余弦<br>　　double tan (double);正切 </p>
+<h3 id="2-反三角函数"><a href="#2-反三角函数" class="headerlink" title="2.  反三角函数"></a>2.  反三角函数</h3><p>　　double asin (double); 结果介于[-PI/2, PI/2]<br>　　double acos (double); 结果介于[0, PI]<br>　　double atan (double); 反正切(主值), 结果介于[-PI/2, PI/2]<br>　　double atan2 (double, double); 反正切(整圆值), 结果介于[-PI, PI] </p>
+<h3 id="3-双曲三角函数"><a href="#3-双曲三角函数" class="headerlink" title="3.  双曲三角函数"></a>3.  双曲三角函数</h3><p>　　double sinh (double);<br>　　double cosh (double);<br>　　double tanh (double); </p>
+<h3 id="4-指数与对数"><a href="#4-指数与对数" class="headerlink" title="4. 指数与对数"></a>4. 指数与对数</h3><p>　　double exp (double);求取自然数e的幂<br>　　double sqrt (double);开平方<br>　　double log (double); 以e为底的对数<br>　　double log10 (double);以10为底的对数<br>　　double pow(double x, double y）;计算以x为底数的y次幂<br>　　float powf(float x, float y); 功能与pow一致，只是输入与输出皆为浮点数 </p>
+<h3 id="5-取整"><a href="#5-取整" class="headerlink" title="5. 取整"></a>5. 取整</h3><p>　　double ceil (double); 取上整<br>　　double floor (double); 取下整 </p>
+<h3 id="6-绝对值"><a href="#6-绝对值" class="headerlink" title="6. 绝对值"></a>6. 绝对值</h3><p>　　double fabs (double);求绝对值<br>　　double cabs(struct complex znum) ;求复数的绝对值 </p>
+<h3 id="7-标准化浮点数"><a href="#7-标准化浮点数" class="headerlink" title="7.  标准化浮点数"></a>7.  标准化浮点数</h3><p>　　double frexp (double f, int <em>p); 标准化浮点数, f = x </em> 2^p, 已知f求x, p ( x介于[0.5, 1] )<br>　　double ldexp (double x, int p); 与frexp相反, 已知x, p求f </p>
+<h3 id="8-取整与取余"><a href="#8-取整与取余" class="headerlink" title="8. 取整与取余"></a>8. 取整与取余</h3><p>　　double modf (double, double*); 将参数的整数部分通过指针回传, 返回小数部分<br>　　double fmod (double, double); 返回两参数相除的余数 </p>
+<h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a>9. 其他</h3><p>　　double hypot(double x, double y);已知直角三角形两个直角边长度，求斜边长度<br>　　double ldexp(double x, int exponent);计算x<em>(2的exponent次幂)<br>　　double poly(double x, int degree, double coeffs [] );计算多项式<br>　　nt matherr(struct exception </em>e);数学错误计算处理程序</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/03/01/iOS开发系列-让你的应用“动”起来-CALayer/"
+                           title="iOS开发系列-让你的应用“动”起来--CALayer">&larr; iOS开发系列-让你的应用“动”起来--CALayer</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-三角函数"><span class="toc-text">1.  三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-反三角函数"><span class="toc-text">2.  反三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-双曲三角函数"><span class="toc-text">3.  双曲三角函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-指数与对数"><span class="toc-text">4. 指数与对数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-取整"><span class="toc-text">5. 取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-绝对值"><span class="toc-text">6. 绝对值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-标准化浮点数"><span class="toc-text">7.  标准化浮点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-取整与取余"><span class="toc-text">8. 取整与取余</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-其他"><span class="toc-text">9. 其他</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#数学函数"
+                           title="数学函数">数学函数</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Kasign 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Github by <a href="https://github.com/Kasign">Kasign</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kasign.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/avatar.jpg">
+</body>
+
+</html>

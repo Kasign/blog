@@ -390,9 +390,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/C指针-函数形参int-p与int-p的区别/">
+    <a href="/2018/04/24/iOS-总结遇到的各种坑儿/">
         <h2 class="post-title">
-            C指针--函数形参int-p与int--p的区别
+            iOS-总结遇到的各种坑儿
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -400,7 +400,8 @@
         
         <div class="post-content-preview">
             <p>
-                首先看代码：1234567void fun(int * p) ;int * pBuf = NULL;                                    //****************(1)fun(pBuf);                                            //***************..
+                持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
+##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj = [NSJSONSerialization JSONObj..
             </p>
         </div>
     </a>
@@ -412,9 +413,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/KVO键值依赖/">
+    <a href="/2018/04/24/iOS-画虚线的几种方式/">
         <h2 class="post-title">
-            KVO键值依赖
+            iOS-画虚线的几种方式
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -422,7 +423,7 @@
         
         <div class="post-content-preview">
             <p>
-                一个属性与有限个属性关联，例如下面的totalAge与user1和user2的age息息相关，只要其中一个改变，totalAge就会改变。12345678910111213////  Person.h////  Created by Walg on 2017/7/29.//  Copyright © 2017年 Walg. All rights rese..
+                一、重写drawRect方法1234567891011121314151617 - (void)drawRect:(CGRect)rect&#123; 	[super drawRect:rect];	 CGContextRef currentContext = UIGraphicsGetCurrentContext(); 	 //设置虚线颜色 	 CGC..
             </p>
         </div>
     </a>
@@ -434,9 +435,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发证书要点详解，ios证书详解/">
+    <a href="/2018/04/24/iOS-开发中手势方法的使用/">
         <h2 class="post-title">
-            iOS开发证书要点详解，ios证书详解
+            iOS-开发中手势方法的使用
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -444,9 +445,10 @@
         
         <div class="post-content-preview">
             <p>
-                关于开发证书配置（Certificates&amp;Identifiers&amp;Provisioning Profiles），相信做iOS开发的同学没少被折腾。对于一个iOS开发小白、半吊子抑或老兵，或多或少会有以下不详、疑问、疑惑甚至困惑：
-本文将对相关概念做个系统的梳理串烧。
-首先，假设你使用过Apple设备（iMac/iPad/iPhone）且..
+                
+以下使用方法能够较好的控制手势
+
+12345678910- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  &#123;      UIGestureRecognizerState state = [recognizer state];        if (stat..
             </p>
         </div>
     </a>
@@ -458,9 +460,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-JavaScriptCore使用/">
+    <a href="/2018/04/24/iOS-App图标和启动画面尺寸/">
         <h2 class="post-title">
-            iOS-JavaScriptCore使用
+            iOS-App图标和启动画面尺寸
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -468,8 +470,10 @@
         
         <div class="post-content-preview">
             <p>
-                JavaScriptCore是apple推出的为了解决ios与js交互的框架，功能强大而实用。
-一、JavaScriptCore中主要的类1.1、JSContext — 在OC中创建JavaScript运行的上下文环境12345678910111213141516171819202122232425- (instancetype)init; // 创建J..
+                iphone平台一般要求3种规格的图片：1x、2x、3x，也是就Icon.png、Icon@2x.png、Icon@3x.png.
+注意：iOS所有图标的圆角效果由系统生成，给到的图标本身不能是圆角的。
+
+桌面图标 (app icon)for iPhone6 plus(@3x) : 180 x 180for iPhone 6/5s/5/4s/4(@2x)..
             </p>
         </div>
     </a>
@@ -481,9 +485,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/App-Store-审核指南/">
+    <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/">
         <h2 class="post-title">
-            App-Store-审核指南
+            iOS-copy与strong声明属性时的区别
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -491,7 +495,8 @@
         
         <div class="post-content-preview">
             <p>
-                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正为数百万的开发者和超过十亿的用户提供服务。不管是开发新手，还是由经验丰富的程序员所组成的大型团队，我们都非常欢迎您为 App Store 开发 app，并希望能够帮助您了解我们的准则，以确保您的 ap..
+                内存管理，在iOS中开发中的地位重中只重。当然，你只了解表层，也是能够开发的。但是当出现各种奇葩行为时，这个时候就是考验一个人基本功的时候了。（目前整理的还浅显，有时候做一份详尽的）xcode版本：8.3.3
+1234567891011121314151617181920212223242526272829303132333435363738394041..
             </p>
         </div>
     </a>
@@ -572,6 +577,10 @@
                     
                     
                     
+                    
+                    
+                    
+                    
                     <a href="/tags/#内存" title="内存"
                        rel="2">内存</a>
                     
@@ -579,6 +588,8 @@
                     
                     <a href="/tags/#指针" title="指针"
                        rel="2">指针</a>
+                    
+                    
                     
                     
                     
