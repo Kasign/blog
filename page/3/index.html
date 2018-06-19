@@ -296,24 +296,41 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-文字样式处理总结/">
+    <a href="/2018/04/24/iOS-画虚线的几种方式/">
         <h2 class="post-title">
-            iOS-文字样式处理总结
+            iOS-画虚线的几种方式
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
         </p>
         
-        <h3 class="post-subtitle">
-            字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等
-        </h3>
+        <div class="post-content-preview">
+            <p>
+                一、重写drawRect方法
+(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSetStrokeColorWithColor(currentC..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/">
+        <h2 class="post-title">
+            iOS-copy与strong声明属性时的区别
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
         
         <div class="post-content-preview">
             <p>
-                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
-1. 实例化方法和使用方法实例化方法：使用字符串初始化
-
-(id)initWithS..
+                内存管理，在iOS中开发中的地位重中只重。当然，你只了解表层，也是能够开发的。但是当出现各种奇葩行为时，这个时候就是考验一个人基本功的时候了。（目前整理的还浅显，有时候做一份详尽的）xcode版本：8.3.3
+1234567891011121314151617181920212223242526272829303132333435363738394041..
             </p>
         </div>
     </a>
@@ -339,29 +356,6 @@
 注意：iOS所有图标的圆角效果由系统生成，给到的图标本身不能是圆角的。
 
 桌面图标 (app icon)for iPhone6 plus(@3x) : 180 x 180for iPhone 6/5s/5/4s/4(@2x)..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-copy与strong声明属性时的区别/">
-        <h2 class="post-title">
-            iOS-copy与strong声明属性时的区别
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                内存管理，在iOS中开发中的地位重中只重。当然，你只了解表层，也是能够开发的。但是当出现各种奇葩行为时，这个时候就是考验一个人基本功的时候了。（目前整理的还浅显，有时候做一份详尽的）xcode版本：8.3.3
-1234567891011121314151617181920212223242526272829303132333435363738394041..
             </p>
         </div>
     </a>
@@ -445,8 +439,6 @@
                     
                     
                     
-                    
-                    
                     <a href="/tags/#交互" title="交互"
                        rel="2">交互</a>
                     
@@ -454,6 +446,8 @@
                     
                     <a href="/tags/#js" title="js"
                        rel="2">js</a>
+                    
+                    
                     
                     
                     

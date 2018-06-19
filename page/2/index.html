@@ -273,6 +273,29 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
+    <a href="/2018/04/24/iOS-总结遇到的各种坑儿/">
+        <h2 class="post-title">
+            iOS-总结遇到的各种坑儿
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
+##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj = [NSJSONSerialization JSONObj..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+<div class="post-preview "
+     style="background-image: url('/img/post-default.jpg')">
     <a href="/2018/04/24/iOS-开发中手势方法的使用/">
         <h2 class="post-title">
             iOS-开发中手势方法的使用
@@ -287,29 +310,6 @@
 以下使用方法能够较好的控制手势
 
 12345678910- (void)pinchGestureDetected:(UIPinchGestureRecognizer *)recognizer  &#123;      UIGestureRecognizerState state = [recognizer state];        if (stat..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-<div class="post-preview "
-     style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-总结遇到的各种坑儿/">
-        <h2 class="post-title">
-            iOS-总结遇到的各种坑儿
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                持续更新中。。。另一篇&lt;iOS开发过程中遇到的新奇玩意儿&gt;
-##一、将字符串转换成json时：1234NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];NSError *err;id obj = [NSJSONSerialization JSONObj..
             </p>
         </div>
     </a>
@@ -343,18 +343,24 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-画虚线的几种方式/">
+    <a href="/2018/04/24/iOS-文字样式处理总结/">
         <h2 class="post-title">
-            iOS-画虚线的几种方式
+            iOS-文字样式处理总结
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
         </p>
         
+        <h3 class="post-subtitle">
+            字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等
+        </h3>
+        
         <div class="post-content-preview">
             <p>
-                一、重写drawRect方法
-(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSetStrokeColorWithColor(currentC..
+                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
+1. 实例化方法和使用方法实例化方法：使用字符串初始化
+
+(id)initWithS..
             </p>
         </div>
     </a>
@@ -366,9 +372,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/App-Store-审核指南/">
+    <a href="/2018/04/24/iOS-聊聊第一响应/">
         <h2 class="post-title">
-            App-Store-审核指南
+            iOS-聊聊第一响应
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -376,7 +382,7 @@
         
         <div class="post-content-preview">
             <p>
-                简介App 正在改变世界，丰富人们的生活，并为像您一样的开发者提供前所未有的创新机会。因此，App Store 已成长为一个激动人心且充满活力的生态系统，正为数百万的开发者和超过十亿的用户提供服务。不管是开发新手，还是由经验丰富的程序员所组成的大型团队，我们都非常欢迎您为 App Store 开发 app，并希望能够帮助您了解我们的准则，以确保您的 ap..
+                当视图中有UITextField或者UITextView等这些可以输入的视图时，可以用以下代码获取第一响应：1234UIWindow * keyWindow = [[UIApplication sharedApplication] keyWindow];UIView * _firstResponder = [keyWindow performSelect..
             </p>
         </div>
     </a>
@@ -399,9 +405,9 @@
         <div class="post-content-preview">
             <p>
                 目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。
-多线程相关概念进程与线程的关系？
+一、多线程相关概念进程与线程的关系？
 
-进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的App会..
+进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的Ap..
             </p>
         </div>
     </a>
@@ -581,8 +587,6 @@
                     
                     
                     
-                    
-                    
                     <a href="/tags/#交互" title="交互"
                        rel="2">交互</a>
                     
@@ -590,6 +594,8 @@
                     
                     <a href="/tags/#js" title="js"
                        rel="2">js</a>
+                    
+                    
                     
                     
                     

@@ -39,7 +39,7 @@ function isPages(attr){
     var currentBoolean = document.querySelector('.navbar.navbar-custom').getAttribute(attr);
     if(currentBoolean === 'true'){return true;}
     return false;
-}
+};
 /*
     滚动函数
     接收三个参数,
@@ -50,10 +50,12 @@ function isPages(attr){
 function scrollCheck(scrollTarget, toggleClass, scrollHeight){
     document.addEventListener('scroll',function(){
     var currentTop = window.pageYOffset;
-        currentTop > (scrollHeight||scrollTarget.clientHeight)
-        ?scrollTarget.classList.add(toggleClass)
-        :scrollTarget.classList.remove(toggleClass)
-    })
+        if (scrollTarget.classList) {
+                    currentTop > (scrollHeight||scrollTarget.clientHeight)
+            ?scrollTarget.classList.add(toggleClass)
+            :scrollTarget.classList.remove(toggleClass)
+        }
+    });
 }
 
 //主页
