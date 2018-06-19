@@ -273,9 +273,9 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS开发过程中遇到的新奇玩意儿/">
+    <a href="/2018/04/24/iOS开发常用数学函数/">
         <h2 class="post-title">
-            iOS开发过程中遇到的新奇玩意儿
+            iOS开发常用数学函数
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
@@ -283,8 +283,8 @@
         
         <div class="post-content-preview">
             <p>
-                持续更新中。。。另一篇&lt;[iOS 总结遇到的各种坑儿]&gt;
-一、集合返回枚举对象123456789- (NSEnumerator *)keyEnumerator &#123;        return [array objectEnumerator];&#125;- (NSEnumerator *)reverseKeyEnumerator &..
+                1.  三角函数　　double sin (double);正弦　　double cos (double);余弦　　double tan (double);正切 
+2.  反三角函数　　double asin (double); 结果介于[-PI/2, PI/2]　　double acos (double); 结果介于[0, PI]　　double at..
             </p>
         </div>
     </a>
@@ -296,18 +296,24 @@
 
 <div class="post-preview "
      style="background-image: url('/img/post-default.jpg')">
-    <a href="/2018/04/24/iOS-画虚线的几种方式/">
+    <a href="/2018/04/24/iOS-文字样式处理总结/">
         <h2 class="post-title">
-            iOS-画虚线的几种方式
+            iOS-文字样式处理总结
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-24
         </p>
         
+        <h3 class="post-subtitle">
+            字体、前背景色、斜体、加粗、对齐、行间距、段间距、动态获取字符串label宽高等
+        </h3>
+        
         <div class="post-content-preview">
             <p>
-                一、重写drawRect方法
-(void)drawRect:(CGRect)rect{ [super drawRect:rect]; CGContextRef currentContext = UIGraphicsGetCurrentContext(); //设置虚线颜色 CGContextSetStrokeColorWithColor(currentC..
+                在iOS开发中，常常会有一段文字显示不同的颜色和字体，或者给某几个文字加删除线或下划线的需求。NSMuttableAttstring（带属性的字符串），可以灵活实现以上功能。 NSMutableParagraphStyle段落风格，设置行间距、段间距、缩进、对齐方式等。
+1. 实例化方法和使用方法实例化方法：使用字符串初始化
+
+(id)initWithS..
             </p>
         </div>
     </a>
@@ -430,6 +436,15 @@
                     
                     
                     
+                    
+                    
+                    
+                    
+                    <a href="/tags/#内存" title="内存"
+                       rel="2">内存</a>
+                    
+                    
+                    
                     <a href="/tags/#指针" title="指针"
                        rel="2">指针</a>
                     
@@ -453,13 +468,6 @@
                     
                     
                     
-                    <a href="/tags/#内存" title="内存"
-                       rel="2">内存</a>
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -475,8 +483,6 @@
                     
                     <a href="/tags/#layer" title="layer"
                        rel="2">layer</a>
-                    
-                    
                     
                     
                     
