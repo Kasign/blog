@@ -155,14 +155,14 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#WKWebView"
-                           title="WKWebView">WKWebView</a>
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
                         
                         <a class="tag" href="/tags/#js"
                            title="js">js</a>
                         
-                        <a class="tag" href="/tags/#交互"
-                           title="交互">交互</a>
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
                         
                     </div>
                 </div>
@@ -198,7 +198,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">WeakScriptMessageDelegate.m</span><br><span class="line"></span><br><span class="line">#import &quot;WeakScriptMessageDelegate.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation WeakScriptMessageDelegate</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithDelegate:(id&lt;WKScriptMessageHandler&gt;)scriptDelegate</span><br><span class="line">&#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        _scriptDelegate = scriptDelegate;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message</span><br><span class="line">&#123;</span><br><span class="line">    [self.scriptDelegate userContentController:userContentController didReceiveScriptMessage:message];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <p>尽管如此，在self里还是要在dealloc的时候移除方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[_wkWebView configuration].userContentController removeScriptMessageHandlerForName:@&quot;jsCallNative&quot;];</span><br></pre></td></tr></table></figure></p>
 <p>执行上述代码之后，self和WeakScriptMessageDelegate都能安全释放。</p>
-<p>推荐一个强大的苹果官方库，JavaScriptCore 以及 <a href="https://kasign.github.io/2018/04/24/iOS-JavaScriptCore%E4%BD%BF%E7%94%A8/">iOS JavaScriptCore使用</a>。</p>
+<p>推荐一个强大的苹果官方库，JavaScriptCore 以及 <a href="https://kasign.github.io/2017/11/14/iOS-JavaScriptCore%E4%BD%BF%E7%94%A8/">iOS JavaScriptCore使用</a>。</p>
 
                 <hr>
                 
@@ -251,14 +251,14 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#WKWebView"
-                           title="WKWebView">WKWebView</a>
+                        <a class="tag" href="/tags/#交互"
+                           title="交互">交互</a>
                         
                         <a class="tag" href="/tags/#js"
                            title="js">js</a>
                         
-                        <a class="tag" href="/tags/#交互"
-                           title="交互">交互</a>
+                        <a class="tag" href="/tags/#WKWebView"
+                           title="WKWebView">WKWebView</a>
                         
                     </div>
                 </section>
