@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://kasign.github.io/blog/"/>
-  <updated>2018-07-17T02:05:45.000Z</updated>
+  <updated>2018-07-25T05:23:30.000Z</updated>
   <id>https://kasign.github.io/blog/</id>
   
   <author>
@@ -17,9 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS保持界面流畅的技巧</title>
+    <link href="https://kasign.github.io/blog/2018/07/25/iOS%E4%BF%9D%E6%8C%81%E7%95%8C%E9%9D%A2%E6%B5%81%E7%95%85%E7%9A%84%E6%8A%80%E5%B7%A7/"/>
+    <id>https://kasign.github.io/blog/2018/07/25/iOS保持界面流畅的技巧/</id>
+    <published>2018-07-25T05:23:30.000Z</published>
+    <updated>2018-07-25T05:23:30.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="https://kasign.github.io/blog/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Hexo" scheme="https://kasign.github.io/blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Unity】Unity 工程配置打包成 iOS 工程</title>
-    <link href="https://kasign.github.io/blog/2018/07/17/https://www.aliyun.com/jiaocheng/361001.html/"/>
-    <id>https://kasign.github.io/blog/2018/07/17/https://www.aliyun.com/jiaocheng/361001.html/</id>
+    <link href="https://kasign.github.io/blog/2018/07/17/%E3%80%90Unity%E3%80%91Unity-%E5%B7%A5%E7%A8%8B%E9%85%8D%E7%BD%AE%E6%89%93%E5%8C%85%E6%88%90-iOS-%E5%B7%A5%E7%A8%8B/"/>
+    <id>https://kasign.github.io/blog/2018/07/17/【Unity】Unity-工程配置打包成-iOS-工程/</id>
     <published>2018-07-17T02:05:45.000Z</published>
     <updated>2018-07-17T02:05:45.000Z</updated>
     
@@ -203,28 +229,6 @@
   </entry>
   
   <entry>
-    <title>iOS-开发中手势方法的使用</title>
-    <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%8B%E5%8A%BF%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://kasign.github.io/blog/2018/04/24/iOS-开发中手势方法的使用/</id>
-    <published>2018-04-24T09:46:20.000Z</published>
-    <updated>2018-04-24T10:24:15.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS-画虚线的几种方式</title>
     <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E7%94%BB%E8%99%9A%E7%BA%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
     <id>https://kasign.github.io/blog/2018/04/24/iOS-画虚线的几种方式/</id>
@@ -247,6 +251,28 @@
     
     
       <category term="画虚线" scheme="https://kasign.github.io/blog/tags/%E7%94%BB%E8%99%9A%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS-开发中手势方法的使用</title>
+    <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%8B%E5%8A%BF%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://kasign.github.io/blog/2018/04/24/iOS-开发中手势方法的使用/</id>
+    <published>2018-04-24T09:46:20.000Z</published>
+    <updated>2018-04-24T10:24:15.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
     
   </entry>
   
@@ -378,11 +404,11 @@
       <category term="iOS开发" scheme="https://kasign.github.io/blog/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="交互" scheme="https://kasign.github.io/blog/tags/%E4%BA%A4%E4%BA%92/"/>
+      <category term="WKWebView" scheme="https://kasign.github.io/blog/tags/WKWebView/"/>
     
       <category term="js" scheme="https://kasign.github.io/blog/tags/js/"/>
     
-      <category term="WKWebView" scheme="https://kasign.github.io/blog/tags/WKWebView/"/>
+      <category term="交互" scheme="https://kasign.github.io/blog/tags/%E4%BA%A4%E4%BA%92/"/>
     
   </entry>
   
@@ -408,9 +434,9 @@
       <category term="iOS开发" scheme="https://kasign.github.io/blog/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="交互" scheme="https://kasign.github.io/blog/tags/%E4%BA%A4%E4%BA%92/"/>
-    
       <category term="js" scheme="https://kasign.github.io/blog/tags/js/"/>
+    
+      <category term="交互" scheme="https://kasign.github.io/blog/tags/%E4%BA%A4%E4%BA%92/"/>
     
   </entry>
   
@@ -511,34 +537,6 @@
     
     
       <category term="响应" scheme="https://kasign.github.io/blog/tags/%E5%93%8D%E5%BA%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KVO键值依赖</title>
-    <link href="https://kasign.github.io/blog/2017/07/30/KVO%E9%94%AE%E5%80%BC%E4%BE%9D%E8%B5%96/"/>
-    <id>https://kasign.github.io/blog/2017/07/30/KVO键值依赖/</id>
-    <published>2017-07-30T06:59:05.000Z</published>
-    <updated>2018-06-13T05:21:05.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="https://kasign.github.io/blog/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="键值依赖" scheme="https://kasign.github.io/blog/tags/%E9%94%AE%E5%80%BC%E4%BE%9D%E8%B5%96/"/>
-    
-      <category term="KVO" scheme="https://kasign.github.io/blog/tags/KVO/"/>
     
   </entry>
   
