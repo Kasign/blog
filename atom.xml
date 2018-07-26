@@ -10,7 +10,7 @@
   <id>https://kasign.github.io/blog/</id>
   
   <author>
-    <name>Kasign</name>
+    <name>Eric</name>
     
   </author>
   
@@ -94,11 +94,11 @@
       <category term="iOS开发" scheme="https://kasign.github.io/blog/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="内存" scheme="https://kasign.github.io/blog/tags/%E5%86%85%E5%AD%98/"/>
-    
       <category term="iPhone型号" scheme="https://kasign.github.io/blog/tags/iPhone%E5%9E%8B%E5%8F%B7/"/>
     
       <category term="cpu" scheme="https://kasign.github.io/blog/tags/cpu/"/>
+    
+      <category term="内存" scheme="https://kasign.github.io/blog/tags/%E5%86%85%E5%AD%98/"/>
     
   </entry>
   
@@ -205,28 +205,6 @@
   </entry>
   
   <entry>
-    <title>iOS-开发中手势方法的使用</title>
-    <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%8B%E5%8A%BF%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://kasign.github.io/blog/2018/04/24/iOS-开发中手势方法的使用/</id>
-    <published>2018-04-24T09:46:20.000Z</published>
-    <updated>2018-04-24T10:24:15.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>iOS-画虚线的几种方式</title>
     <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E7%94%BB%E8%99%9A%E7%BA%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
     <id>https://kasign.github.io/blog/2018/04/24/iOS-画虚线的几种方式/</id>
@@ -249,6 +227,28 @@
     
     
       <category term="画虚线" scheme="https://kasign.github.io/blog/tags/%E7%94%BB%E8%99%9A%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS-开发中手势方法的使用</title>
+    <link href="https://kasign.github.io/blog/2018/04/24/iOS-%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%8B%E5%8A%BF%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://kasign.github.io/blog/2018/04/24/iOS-开发中手势方法的使用/</id>
+    <published>2018-04-24T09:46:20.000Z</published>
+    <updated>2018-04-24T10:24:15.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
     
   </entry>
   
