@@ -38,6 +38,27 @@
   </entry>
   
   <entry>
+    <title>iOS底层探索系列--创建对象过程</title>
+    <link href="https://www.ericlife.top/iOS%E5%BA%95%E5%B1%82%E6%8E%A2%E7%B4%A2%E7%B3%BB%E5%88%97--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E8%BF%87%E7%A8%8B.html"/>
+    <id>https://www.ericlife.top/iOS%E5%BA%95%E5%B1%82%E6%8E%A2%E7%B4%A2%E7%B3%BB%E5%88%97--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E8%BF%87%E7%A8%8B.html</id>
+    <published>2019-12-20T06:46:51.000Z</published>
+    <updated>2019-12-20T06:46:51.000Z</updated>
+    
+    <summary type="html">
+    
+      探索iOS中对象创建的过程，对象内存分布情况，以及isa。
+    
+    </summary>
+    
+    
+      <category term="iOS底层探索系列" scheme="https://www.ericlife.top/categories/iOS%E5%BA%95%E5%B1%82%E6%8E%A2%E7%B4%A2%E7%B3%BB%E5%88%97/"/>
+    
+    
+      <category term="创建对象过程" scheme="https://www.ericlife.top/tags/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E8%BF%87%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CGContextRef详解</title>
     <link href="https://www.ericlife.top/CGContextRef%E8%AF%A6%E8%A7%A3.html"/>
     <id>https://www.ericlife.top/CGContextRef%E8%AF%A6%E8%A7%A3.html</id>
@@ -452,27 +473,6 @@
       <category term="键值依赖" scheme="https://www.ericlife.top/tags/%E9%94%AE%E5%80%BC%E4%BE%9D%E8%B5%96/"/>
     
       <category term="KVO" scheme="https://www.ericlife.top/tags/KVO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发证书要点详解，ios证书详解</title>
-    <link href="https://www.ericlife.top/iOS%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E8%A6%81%E7%82%B9%E8%AF%A6%E8%A7%A3%EF%BC%8Cios%E8%AF%81%E4%B9%A6%E8%AF%A6%E8%A7%A3.html"/>
-    <id>https://www.ericlife.top/iOS%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E8%A6%81%E7%82%B9%E8%AF%A6%E8%A7%A3%EF%BC%8Cios%E8%AF%81%E4%B9%A6%E8%AF%A6%E8%A7%A3.html</id>
-    <published>2017-05-18T10:14:10.000Z</published>
-    <updated>2018-06-13T05:21:05.000Z</updated>
-    
-    <summary type="html">
-    
-      可以作为了解，现在都是自动管理证书了。
-    
-    </summary>
-    
-    
-      <category term="iOS开发" scheme="https://www.ericlife.top/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="证书" scheme="https://www.ericlife.top/tags/%E8%AF%81%E4%B9%A6/"/>
     
   </entry>
   
