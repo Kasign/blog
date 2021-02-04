@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。 一、多线程相关概念进程与线程的关系？  进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的App会挂起其他App的进程。一个进程会包含一个">
+  <meta name="description" content="多线程GCD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发之多线程GCD">
 <meta property="og:url" content="https://www.ericlife.top/iOS%E5%BC%80%E5%8F%91%E4%B9%8B%E5%A4%9A%E7%BA%BF%E7%A8%8BGCD.html">
 <meta property="og:site_name" content="时光书馆">
-<meta property="og:description" content="目前多线程主要分为三类： 1 NSThread 2 NSOperation 3 GCD前面两种网上资料很多，本文就苹果推荐使用的GCD理一理。 一、多线程相关概念进程与线程的关系？  进程：app打开的时候会打开相应的进程，一般情况下，一个App会有一个或多个进程，但是iOS的App一般只有一个进程（后台播放，IM除外）。在iOS系统中，打开一个新的App会挂起其他App的进程。一个进程会包含一个">
+<meta property="og:description" content="多线程GCD">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2647951-dbeb080ec6b0f86c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2647951-8b89934a89887dcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -277,6 +277,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>11 分钟</span>
             </span>
+            <div class="post-description">多线程GCD</div>
 
         </div>
       </header>
@@ -477,8 +478,10 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">

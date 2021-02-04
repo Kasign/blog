@@ -362,11 +362,11 @@
       <category term="iOS开发" scheme="https://www.ericlife.top/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
+      <category term="WKWebView" scheme="https://www.ericlife.top/tags/WKWebView/"/>
     
       <category term="js" scheme="https://www.ericlife.top/tags/js/"/>
     
-      <category term="WKWebView" scheme="https://www.ericlife.top/tags/WKWebView/"/>
+      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
     
   </entry>
   
@@ -387,9 +387,9 @@
       <category term="iOS开发" scheme="https://www.ericlife.top/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
-    
       <category term="js" scheme="https://www.ericlife.top/tags/js/"/>
+    
+      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
     
   </entry>
   
@@ -402,13 +402,7 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      C指针详解(经典,非常详细)
     
     </summary>
     
@@ -421,7 +415,7 @@
   </entry>
   
   <entry>
-    <title>C指针--函数形参int-p与int--p的区别</title>
+    <title>C指针--函数形参int * p与int * * p的区别</title>
     <link href="https://www.ericlife.top/C%E6%8C%87%E9%92%88-%E5%87%BD%E6%95%B0%E5%BD%A2%E5%8F%82int-p%E4%B8%8Eint-p%E7%9A%84%E5%8C%BA%E5%88%AB.html"/>
     <id>https://www.ericlife.top/C%E6%8C%87%E9%92%88-%E5%87%BD%E6%95%B0%E5%BD%A2%E5%8F%82int-p%E4%B8%8Eint-p%E7%9A%84%E5%8C%BA%E5%88%AB.html</id>
     <published>2017-11-07T11:56:13.000Z</published>
@@ -429,13 +423,7 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      函数形参int * p与int * * p的区别
     
     </summary>
     
