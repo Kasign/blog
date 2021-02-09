@@ -362,11 +362,11 @@
       <category term="iOS开发" scheme="https://www.ericlife.top/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="WKWebView" scheme="https://www.ericlife.top/tags/WKWebView/"/>
+      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
     
       <category term="js" scheme="https://www.ericlife.top/tags/js/"/>
     
-      <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
+      <category term="WKWebView" scheme="https://www.ericlife.top/tags/WKWebView/"/>
     
   </entry>
   
@@ -387,9 +387,9 @@
       <category term="iOS开发" scheme="https://www.ericlife.top/categories/iOS%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="js" scheme="https://www.ericlife.top/tags/js/"/>
-    
       <category term="交互" scheme="https://www.ericlife.top/tags/%E4%BA%A4%E4%BA%92/"/>
+    
+      <category term="js" scheme="https://www.ericlife.top/tags/js/"/>
     
   </entry>
   

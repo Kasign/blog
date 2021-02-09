@@ -1316,9 +1316,9 @@ kCGLineJoinBevel  // 斜角,该方格的连接点形状如图3所示。</code></
         <category>iOS开发</category>
       </categories>
       <tags>
-        <tag>WKWebView</tag>
-        <tag>js</tag>
         <tag>交互</tag>
+        <tag>js</tag>
+        <tag>WKWebView</tag>
       </tags>
   </entry>
   <entry>
@@ -1352,8 +1352,8 @@ kCGLineJoinBevel  // 斜角,该方格的连接点形状如图3所示。</code></
         <category>iOS开发</category>
       </categories>
       <tags>
-        <tag>js</tag>
         <tag>交互</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -2015,8 +2015,8 @@ kCGLineJoinBevel  // 斜角,该方格的连接点形状如图3所示。</code></
         <category>iOS开发</category>
       </categories>
       <tags>
-        <tag>动画</tag>
         <tag>layer</tag>
+        <tag>动画</tag>
       </tags>
   </entry>
   <entry>
@@ -2210,8 +2210,8 @@ kCGLineJoinBevel  // 斜角,该方格的连接点形状如图3所示。</code></
         <category>iOS开发</category>
       </categories>
       <tags>
-        <tag>动画</tag>
         <tag>layer</tag>
+        <tag>动画</tag>
       </tags>
   </entry>
   <entry>
